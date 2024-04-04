@@ -68,15 +68,22 @@ body {
   background-color: wheat;
   box-sizing: border-box;
   height: 8%;
-  /* border: 1px solid black; */
 }
 .smallbox {
   background-color: rgb(204, 203, 203);
   font-weight: bold;
+  width: 95%;
+  margin: auto;
 }
-.smallbox p{
+.smallbox p {
   box-shadow: 2px 2px 10px rgb(104, 103, 103);
 }
+.data_box {
+  margin-left: 1vh;
+  width: 35vh;
+  border-right: 1px solid rgb(204, 203, 203);
+}
+
 footer {
   position: fixed;
   bottom: 0px;
