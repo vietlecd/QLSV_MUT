@@ -17,7 +17,6 @@ footer {
   text-align: center;
 }
 #logo {
-  border: 2px solid rgb(47, 96, 170);
   border-style: ridge;
   box-sizing: border-box;
   padding-left: 100px;
