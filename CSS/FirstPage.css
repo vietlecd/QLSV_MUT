@@ -6,7 +6,6 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
 }
 
 footer {
@@ -17,7 +16,6 @@ footer {
   text-align: center;
 }
 #logo {
-  border-style: ridge;
   box-sizing: border-box;
   padding-left: 100px;
   padding-right: 100px;
