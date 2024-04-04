@@ -5,6 +5,8 @@ body {
 
 header {
   display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
 }
 
 footer {
@@ -14,7 +16,24 @@ footer {
   display: flex;
   text-align: center;
 }
-
+#logo {
+  border: 2px solid rgb(47, 96, 170);
+  border-style: ridge;
+  box-sizing: border-box;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-left: 10px;
+  width: 100%;
+  height: 100%;
+}
+#circle {
+  margin-left: 2%;
+  width: 15%;
+  background-color: gainsboro;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+}
 :root {
   /* fonts */
   --font-inter: Inter;
@@ -56,7 +75,7 @@ footer {
 }
 
 .big-box {
-  background-image: url("./../jftf/slide1.jfif"); /* Đường dẫn tới hình ảnh của bạn */
+  background-image: url("./../Images/slide1.jfif"); /* Đường dẫn tới hình ảnh của bạn */
   background-size: cover; /* Đảm bảo hình ảnh nền bao phủ toàn bộ phần diện tích của trang */
   background-position-x: center; /* Canh chỉnh vị trí của hình nền */
   background-repeat: no-repeat; /* Không lặp lại hình ảnh */
@@ -135,6 +154,8 @@ footer {
 
 .text1 {
   color: var(--color-white);
+  margin-top: 0;
+  padding-top: 40px;
 }
 
 .text2 {
