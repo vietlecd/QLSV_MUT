@@ -22,7 +22,7 @@
 .pass {
   display: flex;
   padding: 20px;
-  width: 250px;
+  width: 70%;
   border-radius: 25px;
 }
 #signin {
