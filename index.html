@@ -5,17 +5,23 @@
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <title>MUT Education</title>
     <link rel="stylesheet" href="./index.css" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   </head>
   <body>
     <div class="part2">
       <img id="logo" alt="" src="./Images/logo.png" />
-      <input type="text" class="pass" id="Username" placeholder="Username or email address"/>
-      <input type="text" class="pass" id="Password" placeholder="Password"/>
-      <a href="./HTML/FirstPage.html" id="signin">SIGN IN</a>
+      <form id="form" class="text-center">
+        <input type="text" class="pass" id="Username" name="username" placeholder="Username or email address">
+        <input type="password" class="pass" id="Password" name="password" placeholder="Password">
+        <button class="btn btn-default bg-secondary btn-lg" type="submit">signin</button>
+      </form>
       <p id="content">
         Nếu bạn không thuộc bộ phận của trường, hãy đăng nhập bằng tài khoản
         <i id="khach">khách</i>.
       </p>
     </div>
+    <script src="./Script/login.js"></script>
   </body>
 </html>
