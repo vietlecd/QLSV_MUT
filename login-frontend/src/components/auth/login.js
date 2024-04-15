@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 
-function Login() {
+function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const auth = useAuth();
@@ -11,7 +11,7 @@ function Login() {
     auth.login(email, password);
   };
   const handleClickChange = () => {
-    
+    props.handleViewChange('Register');
   }
   return (
     <div className='login'>
@@ -24,7 +24,7 @@ function Login() {
         </label>
         <button type="submit" id="login">Login</button>
       </form>
-      <p>or doesn't have an account</p>
+      <p>or doesn't have an ACCOUNT?</p>
       <button id="change" onClick={handleClickChange}>Register</button>
     </div>
   );

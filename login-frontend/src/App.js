@@ -4,21 +4,21 @@ import Login from './components/auth/login';
 import Register from './components/auth/register';
 
 function App() {
-  const[clickbtn, setClickbtn] = useState('Login');
-  const handleClickbtn = () => {
-    // setClickbtn = true;
+  const[currentView, setCurrentView] = useState('Login');
+  const handleViewChange = (newView) => {
+    setCurrentView(newView);
   }
   return (
     <AuthProvider>      
       <div className="App">
-        <h1>SignIn Page</h1>
-        { clickbtn ? (
+        <h1>Welcome</h1>
+        { currentView === 'Login' ? (
           <div>
-            <Register />
+            <Login handleViewChange = {handleViewChange}/>
           </div>
         ) : (
           <div>
-            <Login />
+            <Register handleViewChange = {handleViewChange}/>
           </div>
         )
         }
