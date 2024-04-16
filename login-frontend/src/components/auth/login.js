@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth'; // Assuming useAuth hook exists
 
 function Login(props) {
   const [email, setEmail] = useState('');
@@ -8,26 +8,62 @@ function Login(props) {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    auth.login(email, password);
+    try {
+      await auth.login(email, password);
+    } catch (error) {
+      // Handle login errors gracefully (e.g., display error message)
+      console.error('Login error:', error);
+    }
   };
+
   const handleClickChange = () => {
     props.handleViewChange('Register');
-  }
+  };
+
   return (
-    <div className='login'>
-      <form onSubmit={handleLogin}>
-        <label>
-          <input type="email" placeholder="Enter email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
+    <div className='login' style={{marginTop: '5vh'}}>
+      <form className='was-validated' onSubmit={handleLogin}>
+        <label htmlFor="email">
+          <input
+            className="form-control"
+            style={{ width: '40vh', height: '6vh'}} // Use object style syntax for consistency
+            type="email"
+            placeholder="Enter email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            id="email" // Add ID for proper label association
+            required
+          />
+          <div className="valid-feedback">Valid</div>
+          <div className="invalid-feedback">Please fill this field</div>
         </label>
-        <label>
-          <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <label htmlFor="password">
+          <input
+            className="form-control"
+            style={{ width: '40vh', height: '6vh'}} // Use object style syntax for consistency
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            id="password" // Add ID for proper label association
+            required
+          />
+          <div className="valid-feedback">Valid</div>
+          <div className="invalid-feedback">Please fill this field</div>
         </label>
-        <button type="submit" id="login">Login</button>
+        <button style={{padding: '5%', width: '20vh', fontWeight: 'bold', color: 'bisque', margin: '2vh'}} className="btn btn-block bg-primary" type="submit" id="login">
+          Login
+        </button>
       </form>
-      <p>or doesn't have an ACCOUNT?</p>
-      <button id="change" onClick={handleClickChange}>Register</button>
+      <p>or doesn't have an account?</p>
+      <button
+        className="btn btn-block bg-success" style={{padding: '5%', width: '30vh', fontWeight: 'bold', color: 'bisque', margin: '2vh'}} onClick={handleClickChange}
+      >
+        Register
+      </button>
     </div>
   );
 }
 
 export default Login;
+
