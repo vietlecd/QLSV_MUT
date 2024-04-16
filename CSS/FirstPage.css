@@ -72,7 +72,7 @@ footer {
 }
 
 .big-box {
-  background-image: url("./../Images/slide1.jfif"); /* Đường dẫn tới hình ảnh của bạn */
+  background-image: url("https://i.ibb.co/NCrmvVX/8ktXyJ-n.jpg"); /* Đường dẫn tới hình ảnh của bạn */
   background-size: cover; /* Đảm bảo hình ảnh nền bao phủ toàn bộ phần diện tích của trang */
   background-position-x: center; /* Canh chỉnh vị trí của hình nền */
   background-repeat: no-repeat; /* Không lặp lại hình ảnh */

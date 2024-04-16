@@ -52,6 +52,7 @@
 body {
   background-image: url("./Images/uniBackground.png");
   background-size: cover;
+  background-color: red;
   display: static;
   margin: 0;
 }
