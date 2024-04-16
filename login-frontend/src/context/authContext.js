@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import * as authService from '../services/authServices';
-
+import './authContext.css'
 export const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
