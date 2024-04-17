@@ -1,20 +1,41 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth'; // Assuming useAuth hook exists
+import Alert from '@mui/material/Alert'
 
 function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(null);
   const auth = useAuth();
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      await auth.login(email, password);
+        // Gọi hàm auth.login() và chờ phản hồi
+        const response = await auth.login(email, password);
+        
+        // Kiểm tra nếu phản hồi là hợp lệ
+        if (response) {
+            // Kiểm tra nếu phản hồi có mã trạng thái OK (200)
+            if (response.status === 200) {
+                // Chuyển đổi dữ liệu từ phản hồi thành đối tượng JavaScript
+                const data = await response.json();
+                console.log(data); // In ra dữ liệu nhận được từ phản hồi
+            } else {
+                // Nếu phản hồi có mã trạng thái không hợp lệ, in ra lỗi
+                console.error('Đã xảy ra lỗi:', response.status);
+            }
+        } else {
+            // Nếu không nhận được phản hồi từ auth.login(), in ra lỗi
+            console.error('Không nhận được phản hồi từ auth.login()');
+        }
     } catch (error) {
-      // Handle login errors gracefully (e.g., display error message)
-      console.error('Login error:', error);
+        // Xử lý các lỗi xảy ra trong quá trình gọi auth.login()
+        setErrorMsg(error?.message || "Error");
+        console.error('Login error:', error.message);
     }
-  };
+};
 
   const handleClickChange = () => {
     props.handleViewChange('Register');
@@ -22,6 +43,8 @@ function Login(props) {
 
   return (
     <div className='login' style={{marginTop: '5vh'}}>
+    {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
+    {successMsg && <Alert severity="success">{successMsg}</Alert>}
       <form className='was-validated' onSubmit={handleLogin}>
         <label htmlFor="email">
           <input

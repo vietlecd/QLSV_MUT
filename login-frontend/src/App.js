@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import FirstPage from './components/pages/FirstPage';
-import AuthPage from './components/pages/authPage';
+import FirstPage from './pages/pages/FirstPage';
+import AuthPage from './pages/pages/authPage';
 import { Login } from '@mui/icons-material';
 
 function App() {
