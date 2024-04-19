@@ -3,8 +3,8 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import FirstHeader from '../header_footer/FirstHeader';
-import FirstFooter from '../header_footer/FirstFooter';
+import FirstHeader from '../../components/header_footer/FirstHeader';
+import FirstFooter from '../../components/header_footer/FirstFooter';
 //import './FirstPage.css';
 
 const slide1 = 'https://i.ibb.co/RbNBFv1/8ktXyJ-n.jpg';

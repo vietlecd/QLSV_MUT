@@ -1,20 +1,35 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth'; // Assuming useAuth hook exists
-
+import Alert from '@mui/material/Alert'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(null);
   const auth = useAuth();
-
+  const navigate = useNavigate();
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      await auth.login(email, password);
+        // Gọi hàm auth.login() và chờ phản hồi
+        const response = await auth.login(email, password);
+        console.log("response data: ", response);
+        if (response.message === "Login successful") {
+          setErrorMsg(null);
+          setSuccessMsg("Login successful!");
+          navigate('/student/dashboard');
+        } else {
+          setErrorMsg(response.message);
+          setSuccessMsg(null);
+        }
     } catch (error) {
-      // Handle login errors gracefully (e.g., display error message)
-      console.error('Login error:', error);
+        // Xử lý các lỗi xảy ra trong quá trình gọi auth.login()
+        setErrorMsg(error?.message || "Error");
+        console.error('Login error:', error.message);
     }
-  };
+};
 
   const handleClickChange = () => {
     props.handleViewChange('Register');
@@ -22,6 +37,8 @@ function Login(props) {
 
   return (
     <div className='login' style={{marginTop: '5vh'}}>
+    {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
+    {successMsg && <Alert severity="success">{successMsg}</Alert>}
       <form className='was-validated' onSubmit={handleLogin}>
         <label htmlFor="email">
           <input
