@@ -6,6 +6,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import FirstPage from './pages/pages/FirstPage';
 import AuthPage from './pages/pages/authPage';
+import StudentDashBoard from './components/DashBoard/StudentDashboard';
 import { Login } from '@mui/icons-material';
 
 function App() {
@@ -33,9 +34,9 @@ function App() {
         <Route path='/teacher' element={<AuthPage />} />
         <Route path='/student' element={<AuthPage />} />
         <Route path='/admin' element={<AuthPage />} />
-        <Route path='/teacher/dashboard' element={< AuthPage/>} />
-        <Route path='/student/dashboard' element={< AuthPage/>} />
-        <Route path='/admin/dashboard' element={< AuthPage/>} />
+        <Route path='/teacher/dashboard' element={< StudentDashBoard/>} />
+        <Route path='/student/dashboard' element={< StudentDashBoard/>} />
+        <Route path='/admin/dashboard' element={< StudentDashBoard/>} />
       </Routes>
     </Router>
   );

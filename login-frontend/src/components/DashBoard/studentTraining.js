@@ -1,10 +1,10 @@
 import React from 'react'; // Use React for functional components
 
-function StudentInfo(props) {
+function Training(props) {
   return (
-    <div className="student-info"> {/* Use a more specific class name */}
+    <div className="training-info"> {/* Use a more specific class name */}
       <div className="smallbox">
-        <p>Personal Information</p>
+        <p>Training Information</p>
       </div>
       <div className="data-container" style={{ display: 'flex' }}> {/* Combined styles */}
         <div className="data-box" style={{ marginLeft: '4vh' }}>
@@ -16,48 +16,46 @@ function StudentInfo(props) {
           </p>
         </div>
         <div className="data-box">
-          <p style={{ fontWeight: 'bold' }}>#Full Name</p>
+          <p style={{ fontWeight: 'bold' }}>#Year of Admission</p>
           <p>SV000000</p>
-          <p style={{ fontWeight: 'bold' }}>#Student ID</p>
+          <p style={{ fontWeight: 'bold' }}>#Training Time</p>
           <p>None</p>
-          <p style={{ fontWeight: 'bold' }}>#Sex</p>
+          <p style={{ fontWeight: 'bold' }}>#Education Program</p>
           <p>None</p>
         </div>
         <div className="data-box">
-          <p style={{ fontWeight: 'bold' }}>#Class</p>
-          <p>SV000000</p>
-          <p style={{ fontWeight: 'bold' }}>#Major</p>
+          <p style={{ fontWeight: 'bold' }}>#Status</p>
           <p>None</p>
-          <p style={{ fontWeight: 'bold' }}>#Faculty</p>
+          <p style={{ fontWeight: 'bold' }}>#Expected number of semesters</p>
+          <p>None</p>
+          <p style={{ fontWeight: 'bold' }}>#Maximum Number of Semesters</p>
           <p>None</p>
         </div>
         <div className="data-box">
-          <p style={{ fontWeight: 'bold' }}>#Identity Card Number</p>
-          <p>SV000000</p>
-          <p style={{ fontWeight: 'bold' }}>#Date of issue of identity card</p>
+          <p style={{ fontWeight: 'bold' }}>#Cumulative Academic Credits</p>
           <p>None</p>
-          <p style={{ fontWeight: 'bold' }}>#Place of issue of identity card</p>
+          <p style={{ fontWeight: 'bold' }}>#GPA</p>
           <p>None</p>
         </div>
       </div>
       <div className="smallbox">
-        <p>Address Information</p>
+        <p>Graduate Information</p>
       </div>
       <div className="data-container" style={{ display: 'flex' }}>
         <div className="data-box" style={{ marginLeft: '4vh' }}>
-          <p style={{ fontWeight: 'bold' }}>#Address</p>
+          <p style={{ fontWeight: 'bold' }}>#Major</p>
           <p>None</p>
         </div>
         <div className="data-box">
-          <p style={{ fontWeight: 'bold' }}>#Telephone Number</p>
+          <p style={{ fontWeight: 'bold' }}>#Expected Graduation Date</p>
           <p>None</p>
         </div>
         <div className="data-box">
-          <p style={{ fontWeight: 'bold' }}>#University Email</p>
+          <p style={{ fontWeight: 'bold' }}>#Decision Number</p>
           <p>None</p>
         </div>
         <div className="data-box">
-          <p style={{ fontWeight: 'bold' }}>#Other Email</p>
+          <p style={{ fontWeight: 'bold' }}>#Decision Day</p>
           <p>None</p>
         </div>
       </div>
@@ -65,4 +63,4 @@ function StudentInfo(props) {
   );
 }
 
-export default StudentInfo;
+export default Training;
