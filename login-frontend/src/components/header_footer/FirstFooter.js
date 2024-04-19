@@ -6,10 +6,10 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function FirstFooter() {
   return (
     <>
-    <div style={{ marginTop: '5%', height: '100%', backgroundColor: '#0b3942', display: 'flex', textAlign: 'center' }}>
+    <div style={{ marginTop: '0%', height: '100%', backgroundColor: '#0b3942', display: 'flex', textAlign: 'center' }}>
         <div style={{ marginLeft: '8%', width: '12%' }}>
           <div style={{ marginTop: '30%', marginRight: '30%', marginLeft: '30%', width: '40%', height: '40%', backgroundColor: 'blueviolet', borderRadius: '50%' }}>
-            <i class="fas fa-solid fa-phone fa-3x"></i>
+            <i class="fas fa-solid fa-phone fa-2x" style={{ marginTop: '25%', color: 'white' }}></i>
           </div>
           <div>
             <p style={{ color: 'white ', marginTop: '1rem' }}>
@@ -19,7 +19,7 @@ function FirstFooter() {
         </div>
         <div style={{ marginLeft: '3%', width: '12%' }}>
           <div style={{ marginTop: '30%', marginRight: '30%', marginLeft: '30%', width: '40%', height: '40%', backgroundColor: 'blueviolet', borderRadius: '50%' }}>
-            <i class="fas fa-regular fa-envelope fa-3x"></i>
+            <i class="fas fa-regular fa-envelope fa-2x" style={{ marginTop: '25%', color: 'white' }}></i>
           </div>
           <div>
             <p style={{ color: 'white ', marginTop: '1rem' }}>
@@ -29,7 +29,7 @@ function FirstFooter() {
         </div>
         <div style={{ marginLeft: '3%', width: '12%' }}>
           <div style={{ marginTop: '30%', marginRight: '30%', marginLeft: '30%', width: '40%', height: '40%', backgroundColor: 'blueviolet', borderRadius: '50%' }}>
-            <i class="fas fa-solid fa-location-dot fa-3x"></i>
+            <i class="fas fa-solid fa-location-dot fa-2x" style={{ marginTop: '25%', color: 'white' }}></i>
           </div>
           <div>
             <p style={{ color: 'white ', marginTop: '1rem' }}>
@@ -40,7 +40,7 @@ function FirstFooter() {
 
         <div style={{ marginLeft: '4%', width: '12%' }}>
           <div style={{ marginTop: '30%', marginRight: '30%', marginLeft: '30%', width: '40%', height: '40%', backgroundColor: 'white', borderRadius: '50%' }}>
-            <i class="fas fa-solid fa-paper-plane fa-3x"></i>
+            <i class="fas fa-solid fa-paper-plane fa-2x" style={{ marginTop: '25%', color: 'blueviolet' }}></i>
           </div>
           <div>
             <p style={{ color: 'white ', marginTop: '1rem' }}>
@@ -61,7 +61,7 @@ function FirstFooter() {
         </div>
     </div>
     </>
-  )
+  );
 }
 
 export default FirstFooter;

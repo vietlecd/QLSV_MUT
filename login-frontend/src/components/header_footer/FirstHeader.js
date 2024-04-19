@@ -7,7 +7,7 @@ import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-function Header() {
+function FirstHeader() {
   const [notifications, setNotifications] = useState([]);
 
   const StyledBadge = styled(Badge)(() => ({
@@ -21,8 +21,17 @@ function Header() {
   return (
     <>
       <Navbar style={{ display: 'flex' }}>
-        <img style={{ width: '15%' }} src={'https://i.ibb.co/CMwkBmw/lSgDz8N.png'} alt="logo" />
-        <div style={{ marginLeft: '62%', width: '10%' }}>
+        <img style={{ width: '20vh', marginLeft: '3vh' }} src={'https://i.ibb.co/CMwkBmw/lSgDz8N.png'} alt="logo" />
+        <Link to={'/teacher'} style={{ marginLeft: '5vh', color: 'black', textDecorationLine: 'none' }}>
+          <h4 style={{width:'15vh'}}>GIẢNG VIÊN</h4>
+        </Link>
+        <Link to={'/student'} style={{ color: 'black', textDecorationLine: 'none' }}>
+          <h4 style={{width:'15vh'}}>SINH VIÊN</h4>
+        </Link>
+        <Link to={'/admin'} style={{ color: 'black', textDecorationLine: 'none' }}>
+          <h4 style={{width:'15vh'}}>QUẢN LÝ</h4>
+        </Link>
+        <div style={{ marginLeft: '40vh', width: '10%' }}>
           <Dropdown className="ms-2 me-2">
             <Dropdown.Toggle
               variant="light"
@@ -61,12 +70,9 @@ function Header() {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <div style={{ marginLeft: '2%', width: '10%', backgroundColor: 'gainsboro', borderRadius: '50%', textAlign: 'center' }}>
-          <p style={{ padding: '15% 0%', marginTop: '1rem' }}>TÊN VIẾT TẮT</p>
-        </div>
       </Navbar>
     </>
-  )
+  );
 }
 
-export default Header;
+export default FirstHeader;
