@@ -1,5 +1,5 @@
 import React from 'react'; // Use React for functional components
-
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function StudentInfo(props) {
   return (
     <div className="student-info"> {/* Use a more specific class name */}
@@ -15,7 +15,7 @@ function StudentInfo(props) {
             Last profile photo update time: ___
           </p>
         </div>
-        <div className="data-box">
+        <div className="data-box col-3x">
           <p style={{ fontWeight: 'bold' }}>#Full Name</p>
           <p>SV000000</p>
           <p style={{ fontWeight: 'bold' }}>#Student ID</p>

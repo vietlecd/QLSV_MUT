@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { AuthProvider } from '../../context/authContext';
-import Login from '../../components/auth/login';
-import Register from '../../components/auth/register';
+import { AuthProvider } from '../context/authContext';
+import Login from '../components/auth/login';
+import Register from '../components/auth/register';
 
 const authBG = "https://i.ibb.co/9YFh3Tn/lhuEjVn.jpg";
 const logo = "https://i.ibb.co/CMwkBmw/lSgDz8N.png";
@@ -25,7 +25,6 @@ function App() {
           mozOsxFontSmoothing: 'grayscale',
           backgroundImage: `url(${authBG})`,
           backgroundSize: 'cover',
-          margin: 0,
         }}
       >
         <div className="row">

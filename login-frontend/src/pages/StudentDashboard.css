@@ -28,22 +28,21 @@
   background-color: wheat;
   height: 8%;
 }
-.navigation a{
+a{
   color: #020202;
   padding: 2vh 10vh;
   text-decoration: none;
+}
+.active{
+  border-top: 3px solid blue;
 }
 .smallbox {
   background-color: rgb(204, 203, 203);
   font-weight: bold;
   width: 95%;
   margin: auto;
-}
-.smallbox p {
   box-shadow: 2px 2px 10px rgb(104, 103, 103);
 }
-.data_box {
-  margin-left: 1vh;
+.data-box{
   width: 35vh;
-  border-right: 1px solid rgb(204, 203, 203);
 }

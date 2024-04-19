@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import StudentInfo from './studentInfo';
-import Training from './studentTraining';
+import StudentInfo from './../components/DashBoard/studentInfo';
+import Training from './../components/DashBoard/studentTraining';
+import Footer from './../components/header_footer/Footer';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './StudentDashboard.css';
 
 function DataTable() {
@@ -9,6 +12,7 @@ function DataTable() {
   const handleNavigation = (viewName) => {
     setCurrentView(viewName);
   };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="student-dashboard">
@@ -16,14 +20,14 @@ function DataTable() {
         <a className="navbar-brand" href="#">
           <img className="logo" src="https://i.ibb.co/CMwkBmw/lSgDz8N.png" alt="logo" />
         </a>
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
+        <ul className="navbar-nav ms-auto">
+          <li style={{padding: '2vh'}}>
             <a className="nav-link" href="#">Nguyen Van A - SVxxxxx</a>
           </li>
-          <li className="nav-item">
+          <li style={{padding: '2vh'}}>
             <i className="fa fa-solid fa-bell fa-lg fa-3x"></i>
+            Logout
           </li>
-          <li className="nav-item">Logout</li>
         </ul>
       </nav>
 
@@ -37,8 +41,15 @@ function DataTable() {
               <li className="nav-item" style={{ paddingTop: '2rem' }}>
                 <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> Student
               </li>
-              <li className="nav-item" style={{ paddingTop: '2rem' }}>
-                <i className="fa fa-solid fa-book fa-md fa-2x"></i> Course
+              <li className="nav-item" style={{ paddingTop: '2rem', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}>
+                <i className="fa fa-solid fa-book fa-md fa-2x"></i>  Study
+                <i class="fa-solid fa-angles-down"></i>
+                {isOpen && (
+                  <ul>                    
+                    <li className="nav-item" style={{ paddingTop: '2rem'}}><Link to={'/course'} style={{color: 'white', padding: '0'}}>Course</Link></li>
+                    <li className="nav-item" style={{ paddingTop: '2rem' }}><Link to={'/course1'} style={{color: 'white', padding: '0'}}>Course registration</Link></li>
+                  </ul>
+                )}
               </li>
               <li className="nav-item" style={{ paddingTop: '2rem' }}>
                 <i className="fa fa-solid fa-question fa-md fa-2x"></i> Assistant
@@ -48,13 +59,12 @@ function DataTable() {
 
           <div className="col-md-10 rightBody">
             <div className="dataTable mx-auto">
-              <div className="navigation">
-                <nav>
+              <nav>
+                <div className="navigation">
                   <a
-                    href="#"
                     onClick={() => handleNavigation('StudentInfo')}
-                    id="info"
-                    style={{ fontWeight: 'bold', borderTop: '3px solid blue' }}
+                    style={{ fontWeight: 'bold'}}
+                    className={currentView === 'StudentInfo' ? 'active' : ''}
                   >
                     Student Information
                   </a>
@@ -62,11 +72,12 @@ function DataTable() {
                     href="#"
                     onClick={() => handleNavigation('Training')}
                     style={{ fontWeight: 'bold' }}
+                    className={currentView === 'Training' ? 'active' : ''}
                   >
                     Training Information
                   </a>
-                </nav>
-              </div>
+                </div>
+              </nav>
               <div style={{ padding: '10px' }}>
                 <i style={{ fontWeight: 'bold' }}>Last updated time: dd/mm/yyyy realtime</i>
               </div>
@@ -76,15 +87,7 @@ function DataTable() {
           </div>
         </div>
       </div>
-
-      <div className="text-center foot">
-        <p style={{ paddingTop: '2vh', margin: 0 }}>
-          Copyright &copy; 2024 | All rights reserved
-        </p>
-        <p style={{ padding: '1vh', margin: 0 }}>
-          Mọi thắc mắc vui lòng liên hệ email: info@mut.edu.vn
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }

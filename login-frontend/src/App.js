@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import FirstPage from './pages/pages/FirstPage';
-import AuthPage from './pages/pages/authPage';
-import StudentDashBoard from './components/DashBoard/StudentDashboard';
-import { Login } from '@mui/icons-material';
+import FirstPage from './pages/FirstPage';
+import AuthPage from './pages/authPage';
+import StudentDashBoard from './pages/StudentDashboard';
+import Course from './components/coursePage/Course';
+import Course1 from './components/coursePage/Course1';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -37,6 +38,8 @@ function App() {
         <Route path='/teacher/dashboard' element={< StudentDashBoard/>} />
         <Route path='/student/dashboard' element={< StudentDashBoard/>} />
         <Route path='/admin/dashboard' element={< StudentDashBoard/>} />
+        <Route path='/course' element={<Course />} />
+        <Route path='/course1' element={<Course1 />} />
       </Routes>
     </Router>
   );
