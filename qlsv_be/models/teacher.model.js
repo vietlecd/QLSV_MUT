@@ -3,26 +3,28 @@ const mongoose = require('mongoose');
 const teacherSchema = new mongoose.Schema({
     name: String, 
     email: String,
-    password: String,
-    role: {
+    password: {
         type: String,
-        default: 'user'
+        default: '123456'
     },
-    deleted: Boolean,
-    teacherProfile: {
-        hoVaTenLot: String,
-        ten: String,
-        ngaySinh: Date,
+    msgv: {
+        type: String,
+        require: true,
+        unique: true
+    },
+    private_info: {
+        ngaySinh: Date, 
         gioiTinh: String,
-        khoa: String,
-        maLop: String,
-        diaChi: String,
-        soDienThoai: String,
-        emailTruongCap: String,
-        namNhapHoc: String,
-        thoiGianDaoTao: String,
-        namHoc: String,
-        nganhDaoTao: String
+        soCCCD: Number,
+        ngaycapCCCD: Date,
+        noicapCCCD: String,
+        bangcap: String,
+    },
+    contact_info: {
+        diachi: String, 
+        sodienthoai: Number,
+        emailtruongcap: String,
+        emaillienlac: String 
     }
 });
 
