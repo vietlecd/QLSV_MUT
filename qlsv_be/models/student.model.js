@@ -1,30 +1,57 @@
 const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
-    name: String, 
+    name: String,
     email: String,
-    password: String,
-    role: {
+    password: { 
         type: String,
-        default: 'user'
+        default: '123456'
     },
-    deleted: Boolean,
-    studentProfile: {
-        hoVaTenLot: String,
-        ten: String,
+    mssv: { 
+        type: String, 
+        require: false
+    },
+    private_info:{
         ngaySinh: Date,
-        gioiTinh: String,
+        gioiTinh: { type: String, enum: ['Nam', 'Nu'] },
+        soCCCD: String,
+        ngayCapCCCD: Date,
+        noiCapCCCD: String,
         khoa: String,
-        maLop: String,
+        maLop: { type: String, ref: 'Lop' },
         diaChi: String,
         soDienThoai: String,
         emailTruongCap: String,
+        emailLienLac: String,
+    },
+    role: {
+        type: String,
+        default: 'student'
+    },
+    
+    passwordChanged: {
+        type: Boolean,
+        default: false
+    },
+
+      // Training information
+    training_info:{
         namNhapHoc: String,
+        giaHanHocKy: String,
+        soHocKyDaoTao: Number,
+        soHocKyDaoTaoToiDa: Number,
         thoiGianDaoTao: String,
+        thoiGianDaoTaoToiDa: String,
         namHoc: String,
-        nganhDaoTao: String
+        capHoc: String,
+        heDaoTao: String,
+        nganhDaoTao: String,
+        trangThaiSinhVien: String,
+    }}, 
+    { 
+        timestamps: true // Enable createdAt and updatedAt fields
     }
-});
+);
 
 const studentModel = mongoose.model('student', studentSchema);
 module.exports = studentModel;

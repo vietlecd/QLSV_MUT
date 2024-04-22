@@ -4,5 +4,10 @@ const router = express.Router();
 
 const teacherController = require('../../controllers/admin/teacher.controller');
 
-router.use('/', teacherController.getAllTeachers);
+router.get('/', teacherController.getAllTeachers);
+router.post('/add', teacherController.addTeacher);
+router.put('/:msgv', teacherController.updateTeacher);
+router.delete('/:msgv', teacherController.deleteTeacher);
+router.get('/:msgv', teacherController.findTeacherByMsgv);
+
 module.exports = router;

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function ChangePassword(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [retypepass, setRetypepass] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
   const [successMsg, setSuccessMsg] = useState(null);
   const auth = useAuth();
@@ -51,9 +52,23 @@ function ChangePassword(props) {
             className="form-control"
             style={{ width: '40vh', height: '6vh'}}
             type="password"
-            placeholder="Enter password"
+            placeholder="New password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            id="password" 
+            required
+          />
+          <div className="valid-feedback">Valid</div>
+          <div className="invalid-feedback">Please fill this field</div>
+        </label>
+        <label htmlFor="password">
+          <input
+            className="form-control"
+            style={{ width: '40vh', height: '6vh'}}
+            type="password"
+            placeholder="Re-type new password"
+            value={retypepass}
+            onChange={(e) => setRetypepass(e.target.value)}
             id="password" 
             required
           />
