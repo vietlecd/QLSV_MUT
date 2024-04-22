@@ -30,7 +30,5 @@ export function AuthProvider({ children }) {
   };
 
   const value = { user, login, register };
-  console.log("value after set ", value)
-
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

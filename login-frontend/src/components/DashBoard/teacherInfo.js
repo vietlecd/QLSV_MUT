@@ -2,7 +2,17 @@ import React from 'react'; // Use React for functional components
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function StudentInfo(props) {
   return (
-    <div className="student-info"> {/* Use a more specific class name */}
+    <>
+      <nav>
+        <div className="navigation">
+          <a className={'active top_navbar'}>
+            Teacher Information
+          </a>
+        </div>
+      </nav>
+      <div style={{ padding: '2vh' }}>
+        <i style={{ fontWeight: 'bold' }}>Last updated time: dd/mm/yyyy realtime</i>
+      </div>
       <div className="smallbox">
         <p>Personal Information</p>
       </div>
@@ -18,7 +28,7 @@ function StudentInfo(props) {
         <div className="data-box col-3x">
           <p style={{ fontWeight: 'bold' }}>#Full Name</p>
           <p>SV000000</p>
-          <p style={{ fontWeight: 'bold' }}>#Student ID</p>
+          <p style={{ fontWeight: 'bold' }}>#Teacher ID</p>
           <p>None</p>
           <p style={{ fontWeight: 'bold' }}>#Sex</p>
           <p>None</p>
@@ -26,7 +36,7 @@ function StudentInfo(props) {
         <div className="data-box">
           <p style={{ fontWeight: 'bold' }}>#Class</p>
           <p>None</p>
-          <p style={{ fontWeight: 'bold' }}>#Major</p>
+          <p style={{ fontWeight: 'bold' }}>#Degree</p>
           <p>None</p>
           <p style={{ fontWeight: 'bold' }}>#Faculty</p>
           <p>None</p>
@@ -61,7 +71,7 @@ function StudentInfo(props) {
           <p>None</p>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

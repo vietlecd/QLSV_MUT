@@ -1,5 +1,6 @@
 .logo{
   width: 40%;
+  padding-left: 10vh;
 }
 .leftBody {
   height: 83vh;
@@ -26,11 +27,23 @@
 .navigation {
   display: flex;
   background-color: wheat;
-  height: 8%;
 }
-a{
+.long_navigation{
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  padding: 1vh;
+  padding-bottom: 3vh;
+  border-bottom: 1px solid gray;
+}
+.top_navbar{
   color: #020202;
   padding: 2vh 10vh;
+  font-weight: bold;
+  text-decoration: none;
+}
+.left_navbar{
+  color: white;
   text-decoration: none;
 }
 .active{

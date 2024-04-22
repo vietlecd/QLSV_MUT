@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -22,13 +21,13 @@ function FirstHeader() {
     <>
       <Navbar style={{ display: 'flex' }}>
         <img style={{ width: '20vh', marginLeft: '3vh' }} src={'https://i.ibb.co/CMwkBmw/lSgDz8N.png'} alt="logo" />
-        <Link to={'/teacher'} style={{ marginLeft: '5vh', color: 'black', textDecorationLine: 'none' }}>
+        <Link to={'/teacher/login'} style={{ marginLeft: '5vh', color: 'black', textDecorationLine: 'none' }}>
           <h4 style={{width:'15vh'}}>GIẢNG VIÊN</h4>
         </Link>
-        <Link to={'/student'} style={{ color: 'black', textDecorationLine: 'none' }}>
+        <Link to={'/student/login'} style={{ color: 'black', textDecorationLine: 'none' }}>
           <h4 style={{width:'15vh'}}>SINH VIÊN</h4>
         </Link>
-        <Link to={'/admin'} style={{ color: 'black', textDecorationLine: 'none' }}>
+        <Link to={'/admin/login'} style={{ color: 'black', textDecorationLine: 'none' }}>
           <h4 style={{width:'15vh'}}>QUẢN LÝ</h4>
         </Link>
         <div style={{ marginLeft: '40vh', width: '10%' }}>

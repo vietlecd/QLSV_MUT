@@ -4,7 +4,7 @@ import Training from './../components/DashBoard/studentTraining';
 import Footer from './../components/header_footer/Footer';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './StudentDashboard.css';
+import './Dashboard.css';
 
 function DataTable() {
   const [currentView, setCurrentView] = useState('StudentInfo');
@@ -35,23 +35,25 @@ function DataTable() {
         <div className="row">
           <div className="col-md-2 leftBody">
             <ul className="nav flex-column">
-              <li className="nav-item" style={{ paddingTop: '2rem' }}>
-                <i className="fas fa-solid fa-home fa-md fa-2x"></i> Home
+              <li className="nav-item" style={{padding: '0', marginTop: '2rem', cursor: 'pointer' }}>
+                <a href='/' className='left_navbar'>
+                    <i className="fas fa-solid fa-home fa-md fa-2x"></i> Home
+                </a>
               </li>
-              <li className="nav-item" style={{ paddingTop: '2rem' }}>
-                <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> Student
+              <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'  }}>
+                <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> Personal
               </li>
-              <li className="nav-item" style={{ paddingTop: '2rem', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}>
+              <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}>
                 <i className="fa fa-solid fa-book fa-md fa-2x"></i>  Study
                 <i class="fa-solid fa-angles-down"></i>
                 {isOpen && (
                   <ul>                    
-                    <li className="nav-item" style={{ paddingTop: '2rem'}}><Link to={'/course'} style={{color: 'white', padding: '0'}}>Course</Link></li>
-                    <li className="nav-item" style={{ paddingTop: '2rem' }}><Link to={'/course1'} style={{color: 'white', padding: '0'}}>Course registration</Link></li>
+                    <li className="nav-item" style={{ marginTop: '2rem'}}><Link to={'/course'} style={{color: 'white', padding: '0'}}>Course</Link></li>
+                    <li className="nav-item" style={{ marginTop: '2rem' }}><Link to={'/course1'} style={{color: 'white', padding: '0'}}>Course registration</Link></li>
                   </ul>
                 )}
               </li>
-              <li className="nav-item" style={{ paddingTop: '2rem' }}>
+              <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'  }}>
                 <i className="fa fa-solid fa-question fa-md fa-2x"></i> Assistant
               </li>
             </ul>
@@ -64,7 +66,7 @@ function DataTable() {
                   <a
                     onClick={() => handleNavigation('StudentInfo')}
                     style={{ fontWeight: 'bold'}}
-                    className={currentView === 'StudentInfo' ? 'active' : ''}
+                    className={currentView === 'StudentInfo' ? 'active top_navbar' : ' top_navbar'}
                   >
                     Student Information
                   </a>
@@ -72,7 +74,7 @@ function DataTable() {
                     href="#"
                     onClick={() => handleNavigation('Training')}
                     style={{ fontWeight: 'bold' }}
-                    className={currentView === 'Training' ? 'active' : ''}
+                    className={currentView === 'Training' ? 'active top_navbar' : ' top_navbar'}
                   >
                     Training Information
                   </a>
