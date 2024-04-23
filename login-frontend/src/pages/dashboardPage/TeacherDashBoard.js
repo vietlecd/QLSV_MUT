@@ -43,12 +43,12 @@ function DataTable() {
               </li>
               <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer' }}>
                 <a onClick={() => handleNavigation('TeacherInfo')}>
-                    <i class="fa-regular fa-address-book fa-2x"></i> Personal
+                    <i className="fa-regular fa-address-book fa-2x"></i> Personal
                 </a>
               </li>
               <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'}}>
                 <a onClick={() => handleNavigation('SubjectSchedule')}>
-                    <i class="fa-brands fa-blackberry fa-2x"></i> DashBoard
+                    <i className="fa-brands fa-blackberry fa-2x"></i> DashBoard
                 </a>
               </li>
               <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer' }}>

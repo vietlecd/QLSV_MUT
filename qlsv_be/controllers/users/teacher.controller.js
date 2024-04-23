@@ -16,7 +16,7 @@ const login = async (req, res) => {
         if (!teacher || teacher.role !== 'teacher') {
             return res.status(404).json({ message: "Invalid credentials or role"});
         }
-        
+
         if (teacher.password === '123456' && !teacher.passwordChanged) {
             // Respond with an instruction to change the password
             return res.status(200).json({
@@ -29,7 +29,6 @@ const login = async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ message: "Incorrect password" });
         }
-
         const token = jwt.sign({ email: teacher.email, role: teacher.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
         res.json({ message: "Login successful", token: token });
     } catch (err) {

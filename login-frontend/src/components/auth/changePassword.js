@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/useAuth'; // Assuming useAuth hook exists
 import Alert from '@mui/material/Alert'
 import { useNavigate } from 'react-router-dom';
 function ChangePassword(props) {
+  const path = window.location.pathname.split('/');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [retypepass, setRetypepass] = useState('');
@@ -13,12 +14,17 @@ function ChangePassword(props) {
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
+        if(password !== retypepass){
+          setErrorMsg('Re-type password does not match your new password');
+          setSuccessMsg(null);
+          return;
+        }
         const response = await auth.login(email, password);
         console.log("response data: ", response);
         if (response.message === "Login successful") {
           setErrorMsg(null);
           setSuccessMsg("Login successful!");
-          navigate('/student/dashboard');
+          navigate('/' + path[1] + '/dashboard');
         } else {
           setErrorMsg(response.message);
           setSuccessMsg(null);
@@ -27,7 +33,7 @@ function ChangePassword(props) {
         setErrorMsg(error?.message || "Error");
         console.error('Login error:', error.message);
     }
-};
+  };
   return (
     <div className='login' style={{marginTop: '5vh'}}>
     {errorMsg && <Alert severity="error">{errorMsg}</Alert>}

@@ -1,6 +1,6 @@
-const API_URL = 'http://localhost:5000/admin/login';
-
+const BASE_URL = 'http://localhost:5000'
 export const login = async (email, password) => {
+  const API_URL = BASE_URL + window.location.pathname;
   const response = await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -8,16 +8,7 @@ export const login = async (email, password) => {
   });
   const data = await response.json();
   if (response.ok) {
-        sessionStorage.setItem('jwtToken', data.token); // Lưu token
+    sessionStorage.setItem('jwtToken', data.token); // Lưu token
   }
   return data;
-};
-
-export const register = async (name, email, password) => {
-  const response = await fetch('http://localhost:5000/admin/register', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, password })
-  });
-  return response.json();
 };

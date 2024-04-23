@@ -12,22 +12,6 @@ import CourseRegistration from './pages/coursePage/CourseRegistration';
 import TeacherDashBoard from './pages/dashboardPage/TeacherDashBoard';
 
 function App() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const response = await fetch('http://localhost:5000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    });
-    const data = await response.text();
-    setMessage(data);
-  };
   return (
     <Router>
       <Routes>

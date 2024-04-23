@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
-const teacherModel = require('../../models/teacher.model');
+const studentModel = require('../../models/student.model');
 
 const login = async (req, res) => {
     const errors = validationResult(req);
@@ -16,7 +16,7 @@ const login = async (req, res) => {
         if (!student || student.role !== 'student') {
             return res.status(404).json({ message: "Invalid credentials or role"});
         }
-        
+
         if (student.password === '123456' && !student.passwordChanged) {
             // Respond with an instruction to change the password
             return res.status(200).json({
@@ -24,7 +24,7 @@ const login = async (req, res) => {
             passwordChangeRequired: true // Flag to indicate that password change is required
             });
         }
-
+        
         const isMatch = await bcrypt.compare(password, student.password);
         if (!isMatch) {
             return res.status(401).json({ message: "Incorrect password" });
