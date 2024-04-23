@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import StudentInfo from './../components/DashBoard/studentInfo';
-import Training from './../components/DashBoard/studentTraining';
-import Footer from './../components/header_footer/Footer';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import StudentInfo from '../../components/dashboard/studentInfo';
+import Training from '../../components/dashboard/studentTraining';
+import Footer from '../../components/header_footer/Footer';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './Dashboard.css';
 
@@ -15,7 +15,7 @@ function DataTable() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="student-dashboard">
+    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
           <img className="logo" src="https://i.ibb.co/CMwkBmw/lSgDz8N.png" alt="logo" />
@@ -48,8 +48,12 @@ function DataTable() {
                 <i class="fa-solid fa-angles-down"></i>
                 {isOpen && (
                   <ul>                    
-                    <li className="nav-item" style={{ marginTop: '2rem'}}><Link to={'/course'} style={{color: 'white', padding: '0'}}>Course</Link></li>
-                    <li className="nav-item" style={{ marginTop: '2rem' }}><Link to={'/course1'} style={{color: 'white', padding: '0'}}>Course registration</Link></li>
+                    <li className="nav-item" style={{ paddingTop: '2rem' }}>
+                      <Link to={'/course'} style={{ color: 'white', padding: '0' }}>Course</Link>
+                    </li>
+                    <li className="nav-item" style={{ paddingTop: '2rem' }}>
+                      <Link to={'/courseRegistration'} style={{ color: 'white', padding: '0' }}>Course registration</Link>
+                    </li>
                   </ul>
                 )}
               </li>

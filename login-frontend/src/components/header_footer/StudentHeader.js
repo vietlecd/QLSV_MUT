@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col } from "react-bootstrap";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Header() {
+function StudentHeader() {
   return (
     <>
-      <Navbar expand="lg">
+      <Navbar expand="lg" style={{ borderBlockEnd: '1px solid' }}>
         <img style={{ width: '15%' }} src={'https://i.ibb.co/CMwkBmw/lSgDz8N.png'} alt="logo" />
         {/*<Navbar.Toggle aria-controls="basic-navbar-nav" />*/}
         <Navbar.Collapse id="basic-navbar-nav" style={{ marginLeft: '5%' }}>
@@ -15,7 +15,7 @@ function Header() {
             <NavDropdown title="Các khóa học" id="basic-nav-dropdown" style={{ fontSize: '1.5em' }}>
               <NavDropdown.Item href="/course1">Khóa học của tôi</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/course3" style={{ fontSize: '1.5em' }}>Đăng ký môn học</Nav.Link>
+            <Nav.Link href="/courseRegistration" style={{ fontSize: '1.5em' }}>Đăng ký môn học</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <div>
@@ -34,4 +34,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default StudentHeader;

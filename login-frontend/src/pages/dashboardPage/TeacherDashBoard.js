@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import TeacherInfo from './../components/DashBoard/teacherInfo';
-import Footer from './../components/header_footer/Footer';
-import SubjectSchedule from './../components/DashBoard/subjectSchedule';
-import LessonPlan from './../components/DashBoard/lessonPlan';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import TeacherInfo from './../../components/dashboard/teacherInfo';
+import Footer from '../../components/header_footer/Footer';
+import SubjectSchedule from './../../components/dashboard/subjectSchedule';
+import LessonPlan from './../../components/dashboard/lessonPlan';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // import './StudentDashboard.css';
 
@@ -16,7 +16,7 @@ function DataTable() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="student-dashboard">
+    <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
           <img className="logo" src="https://i.ibb.co/CMwkBmw/lSgDz8N.png" alt="logo" />

@@ -5,10 +5,11 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import FirstPage from './pages/FirstPage';
 import AuthPage from './pages/authPage';
-import StudentDashBoard from './pages/StudentDashboard';
-import Course from './components/coursePage/Course';
-import Course1 from './components/coursePage/Course1';
-import TeacherDashBoard from './pages/TeacherDashBoard';
+import StudentDashBoard from './pages/dashboardPage/StudentDashboard';
+import Course from './pages/coursePage/Course';
+import Course1 from './pages/coursePage/Course1';
+import CourseRegistration from './pages/coursePage/CourseRegistration';
+import TeacherDashBoard from './pages/dashboardPage/TeacherDashBoard';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -43,6 +44,7 @@ function App() {
         <Route path='/admin/dashboard' element={< StudentDashBoard/>} />
         <Route path='/course' element={<Course />} />
         <Route path='/course1' element={<Course1 />} />
+        <Route path='/courseRegistration' element={<CourseRegistration />} />
       </Routes>
     </Router>
   );
