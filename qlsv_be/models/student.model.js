@@ -33,7 +33,6 @@ const studentSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-
       // Training information
     training_info:{
         namNhapHoc: String,

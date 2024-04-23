@@ -19,5 +19,4 @@ router.post('/login', [
 
 router.use('/dashboard', authenticate, teacherDashboard);
 
-
 module.exports = router;

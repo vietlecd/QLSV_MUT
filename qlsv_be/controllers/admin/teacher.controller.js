@@ -39,8 +39,6 @@ const addTeacher = async (req, res) => {
         res.status(400).send(error.message);
     }
 };
-
-
 const deleteTeacher = async (req, res) => {
     const { msgv } = req.params;
 

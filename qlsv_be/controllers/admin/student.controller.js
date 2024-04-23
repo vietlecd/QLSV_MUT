@@ -41,8 +41,6 @@ const addStudent = async (req, res) => {
     }
 };
 
-
-
 // Delete a student
 const deleteStudent = async (req, res) => {
     const { mssv } = req.params;
