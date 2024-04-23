@@ -10,13 +10,13 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import Header from './../header_footer/Header';
-import Footer from './../header_footer/Footer';
+import StudentHeader from '../../components/header_footer/StudentHeader';
+import Footer from '../../components/header_footer/Footer';
 
 function Course1() {
   return (
     <>
-      <Header />
+      <StudentHeader />
       <div style={{ margin: '5% 10%' }}>
         <div style={{ marginBottom: '2%' }}>
           <h2 style={{ color: '#eba234' }}>Khóa học của tôi</h2>

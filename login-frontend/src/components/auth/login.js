@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth'; // Assuming useAuth hook exists
 import Alert from '@mui/material/Alert'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 function Login(props) {
   const [email, setEmail] = useState('');
@@ -31,10 +30,6 @@ function Login(props) {
     }
 };
 
-  const handleClickChange = () => {
-    props.handleViewChange('Register');
-  };
-
   return (
     <div className='login' style={{marginTop: '5vh'}}>
     {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
@@ -43,12 +38,12 @@ function Login(props) {
         <label htmlFor="email">
           <input
             className="form-control"
-            style={{ width: '40vh', height: '6vh'}} // Use object style syntax for consistency
+            style={{ width: '40vh', height: '6vh'}}
             type="email"
             placeholder="Enter email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            id="email" // Add ID for proper label association
+            id="email" 
             required
           />
           <div className="valid-feedback">Valid</div>
@@ -57,12 +52,12 @@ function Login(props) {
         <label htmlFor="password">
           <input
             className="form-control"
-            style={{ width: '40vh', height: '6vh'}} // Use object style syntax for consistency
+            style={{ width: '40vh', height: '6vh'}} 
             type="password"
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            id="password" // Add ID for proper label association
+            id="password" 
             required
           />
           <div className="valid-feedback">Valid</div>
@@ -72,12 +67,6 @@ function Login(props) {
           Login
         </button>
       </form>
-      <p>or doesn't have an account?</p>
-      <button
-        className="btn btn-block bg-success" style={{padding: '5%', width: '30vh', fontWeight: 'bold', color: 'bisque', margin: '2vh'}} onClick={handleClickChange}
-      >
-        Register
-      </button>
     </div>
   );
 }

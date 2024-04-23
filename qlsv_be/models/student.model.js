@@ -3,14 +3,13 @@ const mongoose = require('mongoose');
 const studentSchema = new mongoose.Schema({
     name: String,
     email: String,
-    password: {
-        type: String, 
+    password: { 
+        type: String,
         default: '123456'
     },
     mssv: { 
         type: String, 
-        require: true, 
-        unique: true
+        require: false
     },
     private_info:{
         ngaySinh: Date,
@@ -24,6 +23,15 @@ const studentSchema = new mongoose.Schema({
         soDienThoai: String,
         emailTruongCap: String,
         emailLienLac: String,
+    },
+    role: {
+        type: String,
+        default: 'student'
+    },
+    
+    passwordChanged: {
+        type: Boolean,
+        default: false
     },
       // Training information
     training_info:{

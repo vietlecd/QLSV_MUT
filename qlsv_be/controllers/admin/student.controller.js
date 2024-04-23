@@ -1,4 +1,5 @@
 const Student = require('../../models/student.model');
+const { generateUniqueMssv } = require('../../helpers/generateMssv');
 
 // Get all students
 const getAllStudents = async (req, res) => {
@@ -13,20 +14,32 @@ const getAllStudents = async (req, res) => {
 // Add a new student
 const addStudent = async (req, res) => {
     try {
-      const newStudent = new Student({
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password,
-          mssv: req.body.mssv, 
-          private_info: req.body.private_info,
-          training_info: req.body.training_info
-     });
-      await newStudent.save();
-      res.status(201).json(newStudent);
+        const { name, email, password, private_info, training_info } = req.body;
+
+        // Generate new mssv
+        let mssv = await generateUniqueMssv();
+
+        // Check if email is already taken
+        const existingEmail = await Student.findOne({ email: email });
+        if (existingEmail) {
+            return res.status(400).json({ message: "Email is already taken." });
+        }
+
+        const newStudent = new Student({
+            name,
+            email,
+            password,
+            mssv,
+            private_info,
+            training_info
+        });
+
+        await newStudent.save();
+        res.status(201).json({ message: "Add successfully", newStudent });
     } catch (error) {
-      res.status(400).send(error.message);
+        res.status(400).send(error.message);
     }
-  };
+};
 
 // Delete a student
 const deleteStudent = async (req, res) => {

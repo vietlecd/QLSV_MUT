@@ -25,7 +25,7 @@ function StudentInfo(props) {
         </div>
         <div className="data-box">
           <p style={{ fontWeight: 'bold' }}>#Class</p>
-          <p>SV000000</p>
+          <p>None</p>
           <p style={{ fontWeight: 'bold' }}>#Major</p>
           <p>None</p>
           <p style={{ fontWeight: 'bold' }}>#Faculty</p>
@@ -33,7 +33,7 @@ function StudentInfo(props) {
         </div>
         <div className="data-box">
           <p style={{ fontWeight: 'bold' }}>#Identity Card Number</p>
-          <p>SV000000</p>
+          <p>None</p>
           <p style={{ fontWeight: 'bold' }}>#Date of issue of identity card</p>
           <p>None</p>
           <p style={{ fontWeight: 'bold' }}>#Place of issue of identity card</p>

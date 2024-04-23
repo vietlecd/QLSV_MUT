@@ -6,7 +6,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function FirstFooter() {
   return (
     <>
-    <div style={{ marginTop: '0%', height: '100%', backgroundColor: '#0b3942', display: 'flex', textAlign: 'center' }}>
+    <footer style={{ marginTop: '0%', height: '100%', backgroundColor: '#0b3942', display: 'flex', textAlign: 'center' }}>
         <div style={{ marginLeft: '8%', width: '12%' }}>
           <div style={{ marginTop: '30%', marginRight: '30%', marginLeft: '30%', width: '40%', height: '40%', backgroundColor: 'blueviolet', borderRadius: '50%' }}>
             <i class="fas fa-solid fa-phone fa-2x" style={{ marginTop: '25%', color: 'white' }}></i>
@@ -59,7 +59,7 @@ function FirstFooter() {
             Copyright &copy; 2024
           </p>
         </div>
-    </div>
+    </footer>
     </>
   );
 }
