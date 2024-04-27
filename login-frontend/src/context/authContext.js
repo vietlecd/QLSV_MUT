@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
     try {
       const data = await authService.login(email, password);
       if (data && data.token) {
-        sessionStorage.setItem('jwtToken'), data.token;
+        sessionStorage.setItem('jwtToken', data.token);
         setUser(data);
         return data;
       } else {

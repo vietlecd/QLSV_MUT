@@ -37,7 +37,7 @@ const login = async (req, res) => {
 };
 
 const changePassword = async (req, res) => {
-    const { email, newPassword } = req.body;
+    const { email, password } = req.body;
     let teacher;
     
     try {
@@ -52,13 +52,13 @@ const changePassword = async (req, res) => {
         }
 
         // Check if the new password is the default password
-        if (newPassword === '123456') {
+        if (password === '123456') {
             return res.status(400).json({ message: "Invalid password. Please choose a different password." });
         }
 
         // Hash the new password and update the teacher record
         const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(newPassword, salt);
+        const hashedPassword = await bcrypt.hash(password, salt);
         
         teacher.password = hashedPassword;
         teacher.passwordChanged = true;
