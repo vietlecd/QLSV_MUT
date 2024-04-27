@@ -1,15 +1,15 @@
-import React from 'react'; // Use React for functional components
+import React from 'react';
 
 function Training(props) {
   return (
-    <div className="training-info"> {/* Use a more specific class name */}
+    <div className="training-info"> 
       <div className="smallbox">
         <p>Training Information</p>
       </div>
-      <div className="data-container" style={{ display: 'flex' }}> {/* Combined styles */}
+      <div className="data-container" style={{ display: 'flex' }}> 
         <div className="data-box" style={{ marginLeft: '4vh' }}>
           <div style={{ textAlign: 'center' }}>
-            <i class="fa-regular fa-id-badge fa-8x"></i>
+            <i className="fa-regular fa-id-badge fa-8x"></i>
           </div>
           <p style={{ fontWeight: 'bold' }}>
             Last profile photo update time: ___

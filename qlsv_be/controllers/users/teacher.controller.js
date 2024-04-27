@@ -16,7 +16,7 @@ const login = async (req, res) => {
         if (!teacher || teacher.role !== 'teacher') {
             return res.status(404).json({ message: "Invalid credentials or role"});
         }
-        
+
         if (teacher.password === '123456' && !teacher.passwordChanged) {
             // Respond with an instruction to change the password
             return res.status(200).json({
@@ -29,7 +29,6 @@ const login = async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ message: "Incorrect password" });
         }
-
         const token = jwt.sign({ email: teacher.email, role: teacher.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
         res.json({ message: "Login successful", token: token });
     } catch (err) {
@@ -38,7 +37,7 @@ const login = async (req, res) => {
 };
 
 const changePassword = async (req, res) => {
-    const { email, newPassword } = req.body;
+    const { email, password } = req.body;
     let teacher;
     
     try {
@@ -53,13 +52,13 @@ const changePassword = async (req, res) => {
         }
 
         // Check if the new password is the default password
-        if (newPassword === '123456') {
+        if (password === '123456') {
             return res.status(400).json({ message: "Invalid password. Please choose a different password." });
         }
 
         // Hash the new password and update the teacher record
         const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(newPassword, salt);
+        const hashedPassword = await bcrypt.hash(password, salt);
         
         teacher.password = hashedPassword;
         teacher.passwordChanged = true;

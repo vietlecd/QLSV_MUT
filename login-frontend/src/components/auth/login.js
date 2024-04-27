@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/useAuth'; // Assuming useAuth hook exists
 import Alert from '@mui/material/Alert'
 import { useNavigate } from 'react-router-dom';
 function Login(props) {
+  const path = window.location.pathname.split('/');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
@@ -18,8 +19,12 @@ function Login(props) {
         if (response.message === "Login successful") {
           setErrorMsg(null);
           setSuccessMsg("Login successful!");
-          navigate('/student/dashboard');
-        } else {
+          navigate('/' + path[1] + '/dashboard');
+        } else if(response.message === "Default password in use. Password change required."){
+          setErrorMsg(response.message);
+          setSuccessMsg(null);
+          navigate('/' + path[1] + '/changepassword');
+        } else{
           setErrorMsg(response.message);
           setSuccessMsg(null);
         }

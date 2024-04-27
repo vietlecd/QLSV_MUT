@@ -45,7 +45,7 @@ function DataTable() {
               </li>
               <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}>
                 <i className="fa fa-solid fa-book fa-md fa-2x"></i>  Study
-                <i class="fa-solid fa-angles-down"></i>
+                <i className="fa-solid fa-angles-down"></i>
                 {isOpen && (
                   <ul>                    
                     <li className="nav-item" style={{ paddingTop: '2rem' }}>

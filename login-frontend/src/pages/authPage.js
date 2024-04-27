@@ -27,7 +27,7 @@ function App() {
       case 'ChangePassword': return <ChangePassword />;
     }
   }
-  return (
+  return (<>
     <AuthProvider>
       <div
         className="container-fluid text-center"
@@ -54,6 +54,7 @@ function App() {
         </div>
       </div>
     </AuthProvider>
+    </>
   );
 }
 

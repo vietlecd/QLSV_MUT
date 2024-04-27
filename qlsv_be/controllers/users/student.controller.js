@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
-const teacherModel = require('../../models/teacher.model');
+const studentModel = require('../../models/student.model');
 
 const login = async (req, res) => {
     const errors = validationResult(req);
@@ -16,7 +16,7 @@ const login = async (req, res) => {
         if (!student || student.role !== 'student') {
             return res.status(404).json({ message: "Invalid credentials or role"});
         }
-        
+
         if (student.password === '123456' && !student.passwordChanged) {
             // Respond with an instruction to change the password
             return res.status(200).json({
@@ -24,7 +24,7 @@ const login = async (req, res) => {
             passwordChangeRequired: true // Flag to indicate that password change is required
             });
         }
-
+        
         const isMatch = await bcrypt.compare(password, student.password);
         if (!isMatch) {
             return res.status(401).json({ message: "Incorrect password" });
@@ -38,7 +38,7 @@ const login = async (req, res) => {
 };
 
 const changePassword = async (req, res) => {
-    const { email, newPassword } = req.body;
+    const { email, password } = req.body;
     let student;
     
     try {
@@ -53,13 +53,13 @@ const changePassword = async (req, res) => {
         }
 
         // Check if the new password is the default password
-        if (newPassword === '123456') {
+        if (password === '123456') {
             return res.status(400).json({ message: "Invalid password. Please choose a different password." });
         }
 
         // Hash the new password and update the student record
         const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(newPassword, salt);
+        const hashedPassword = await bcrypt.hash(password, salt);
         
         student.password = hashedPassword;
         student.passwordChanged = true;
