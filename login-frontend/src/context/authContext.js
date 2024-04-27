@@ -8,18 +8,17 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     try {
       const data = await authService.login(email, password);
-      if (data) {
+      if (data && data.token) {
+        sessionStorage.setItem('jwtToken'), data.token;
         setUser(data);
         return data;
       } else {
-        // Xử lý trường hợp không nhận được dữ liệu từ phản hồi
-        console.error('Không nhận được dữ liệu từ phản hồi khi đăng nhập');
-        return null; // Hoặc trả về giá trị mặc định khác
+        console.error('No data or token received on login');
+        return null; 
       }
     } catch (error) {
-      // Xử lý lỗi từ phản hồi
-      console.error('Lỗi khi gọi hàm login:', error);
-      return null; // Hoặc trả về giá trị mặc định khác
+      console.error('Error during login:', error);
+      return null;
     }
   };
   
