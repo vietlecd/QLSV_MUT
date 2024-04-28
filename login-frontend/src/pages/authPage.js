@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { AuthProvider } from '../context/authContext';
 import Login from '../components/auth/login';
 import ChangePassword from './../components/auth/changePassword';
 
@@ -28,7 +27,6 @@ function App() {
     }
   }
   return (<>
-    <AuthProvider>
       <div
         className="container-fluid text-center"
         style={{
@@ -53,7 +51,6 @@ function App() {
           </div>
         </div>
       </div>
-    </AuthProvider>
     </>
   );
 }

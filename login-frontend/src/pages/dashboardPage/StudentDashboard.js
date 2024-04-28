@@ -4,6 +4,7 @@ import Training from '../../components/dashboard/studentTraining';
 import Footer from '../../components/header_footer/Footer';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import {useRequireAuth} from './../../hooks/useAuth';
 import './Dashboard.css';
 
 function DataTable() {
@@ -13,7 +14,7 @@ function DataTable() {
     setCurrentView(viewName);
   };
   const [isOpen, setIsOpen] = useState(false);
-
+  useRequireAuth();
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
