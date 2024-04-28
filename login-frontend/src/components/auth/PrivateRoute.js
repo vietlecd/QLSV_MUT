@@ -1,16 +1,18 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../context/authContext'; // Import AuthContext
+import { useEffect } from 'react';
+import { Outlet, Navigate, useNavigate } from 'react-router-dom'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { isAuthenticated } = useContext(AuthContext); // Get authentication state
-  const navigate = useNavigate(); // Use useNavigate hook
-  if (!isAuthenticated) {
-    navigate('/teacher/login');
-    return null;
-  }
-  return <Component {...rest} />;
-};
+const PrivateRoutes = () => {
+  const navigate = useNavigate();
+  const redirectUrl = '/';
+  const token = sessionStorage.getItem('jwtToken');
+  useEffect(() => {
+    if(!token){
+      navigate(redirectUrl, {replace: true });
+    }
+  }, []);
+  return(
+    <Outlet/>
+  )
+}
 
-export default PrivateRoute;
+export default PrivateRoutes

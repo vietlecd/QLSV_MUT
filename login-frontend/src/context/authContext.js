@@ -7,13 +7,10 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const login = async (email, password) => {
     try {
-  console.log('aaa');
       const data = await authService.login(email, password);
       console.log(data);
-      // && data.token
       if (data) {
-        // sessionStorage.setItem('jwtToken', data.token);
-        const token = data.token || null;
+        const token = data.token;
         setUser(data);
         return {...data, token};
       } else {

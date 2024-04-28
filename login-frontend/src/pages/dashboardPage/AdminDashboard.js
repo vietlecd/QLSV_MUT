@@ -4,7 +4,7 @@ import Training from './../components/DashBoard/studentTraining';
 import Footer from './../components/header_footer/Footer';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './StudentDashboard.css';
+import {LogOut} from './../../components/auth/logout';
 
 function DataTable() {
   const [currentView, setCurrentView] = useState('StudentInfo');
@@ -24,7 +24,7 @@ function DataTable() {
           <li style={{padding: '2vh'}}>
             <a className="nav-link" href="#">Nguyen Van A - SVxxxxx</a>
           </li>
-          <li style={{padding: '2vh'}}>
+          <li style={{padding: '2vh', cursor: 'pointer'}} onClick={LogOut}>
             <i className="fa fa-solid fa-bell fa-lg fa-3x"></i>
             Logout
           </li>

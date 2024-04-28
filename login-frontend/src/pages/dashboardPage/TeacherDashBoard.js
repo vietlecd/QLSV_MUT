@@ -4,15 +4,16 @@ import Footer from '../../components/header_footer/Footer';
 import SubjectSchedule from './../../components/dashboard/subjectSchedule';
 import LessonPlan from './../../components/dashboard/lessonPlan';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {useRequireAuth} from './../../hooks/useAuth';
+import {LogOut} from './../../components/auth/logout';
 function DataTable() {
   const [currentView, setCurrentView] = useState('TeacherInfo');
 
   const handleNavigation = (viewName) => {
     setCurrentView(viewName);
   };
+  
+
   const [isOpen, setIsOpen] = useState(false);
-  // useRequireAuth();
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,7 +24,7 @@ function DataTable() {
           <li style={{padding: '2vh'}}>
             <a className="nav-link" href="#">Nguyen Van A - GVxxxxx</a>
           </li>
-          <li style={{padding: '2vh'}}>
+          <li style={{padding: '2vh', cursor: 'pointer'}} onClick={LogOut}>
             <i className="fa fa-solid fa-bell fa-lg fa-3x"></i>
             Logout
           </li>
