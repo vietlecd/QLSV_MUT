@@ -49,10 +49,10 @@ function DataTable() {
                 {isOpen && (
                   <ul>                    
                     <li className="nav-item" style={{ paddingTop: '2rem' }}>
-                      <Link to={'/course'} style={{ color: 'white', padding: '0' }}>Course</Link>
+                      <Link to={'/student/course'} style={{ color: 'white', padding: '0' }}>Course</Link>
                     </li>
                     <li className="nav-item" style={{ paddingTop: '2rem' }}>
-                      <Link to={'/courseRegistration'} style={{ color: 'white', padding: '0' }}>Course registration</Link>
+                      <Link to={'/student/courseRegistration'} style={{ color: 'white', padding: '0' }}>Course registration</Link>
                     </li>
                   </ul>
                 )}

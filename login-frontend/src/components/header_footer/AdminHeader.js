@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav, Form, Button, Row, Col } from "react-bootstrap";
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import {LogOut} from './../../components/auth/logout';
 function AdminHeader() {
   return (
     <>
@@ -18,7 +18,7 @@ function AdminHeader() {
               <path d="M14 5L12.59 6.41L14.17 8H6V10H14.17L12.59 11.58L14 13L18 9L14 5ZM2 2H9V0H2C0.9 0 0 0.9 0 2V16C0 17.1 0.9 18 2 18H9V16H2V2Z" fill="white" />
             </svg>
           </div>
-          <h6>Đăng xuất</h6>
+          <div onClick={LogOut}><h6>LogOut</h6></div>
         </Button>
       </Navbar>
     </>

@@ -35,9 +35,9 @@ function App() {
             <Route path='/teacher/dashboard' element={< TeacherDashBoard/>} />
             <Route path='/student/dashboard' element={< StudentDashBoard/>} />
             <Route path='/admin/dashboard' element={< AdminDashBoard/>} />
-            <Route path='/course' element={<Course />} />
-            <Route path='/mycourse' element={<MyCourse />} />
-            <Route path='/courseRegistration' element={<CourseRegistration />} />
+            <Route path='/student/course' element={<Course />} />
+            <Route path='/student/mycourse' element={<MyCourse />} />
+            <Route path='/student/courseRegistration' element={<CourseRegistration />} />
             
             <Route path='/admin/dashboard/student/add' element={<AdminStudent />} />
             <Route path='/admin/dashboard/student/:studentid' element={<AdminStudentEdit />} />
