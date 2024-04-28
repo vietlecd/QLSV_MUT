@@ -1,120 +1,234 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Table, Button, Modal, Form, Row, Col, Tab, ListGroup } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import {
+  MRT_EditActionButtons,
+  MaterialReactTable,
+  useMaterialReactTable,
+} from 'material-react-table';
 
 import StudentHeader from '../../components/header_footer/StudentHeader';
 import Footer from '../../components/header_footer/Footer';
 
 const CourseRegistration = () => {
-  const [courses, setCourses] = useState([]);
+  const [validationErrors, setValidationErrors] = useState({});
+  const [courses, setCourses] = useState([
+    {
+      'subjectId': 'CO2039',
+      'name': 'LTNC',
+      'room': '413-H6',
+      'amount': '40',
+      'teacher': 'Mai Đức Trung',
+      'time': '13:00-15:00',
+    },
+    {
+      'subjectId': 'COxxxx',
+      'name': 'XYZ',
+      'room': '202-H6',
+      'amount': '50',
+      'teacher': 'Tên Giảng Viên',
+      'time': 'hh:mm-hh:mm',
+    }
+  ]);
   const [showModal, setShowModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [registeredCourses, setRegisteredCourses] = useState([
+    {
+      'stt': '1',
+      'subjectId': 'CO2039',
+      'name': 'LTNC',
+      'room': '413-H6',
+      'amount': '40',
+      'teacher': 'Mai Đức Trung',
+      'time': '13:00-15:00',
+    }
+  ]);
   const [teacher, setTeacher] = useState('');
   const [time, setTime] = useState('');
 
   useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch('your_api_endpoint_here');
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      }
+    };
     fetchCourses();
   }, []);
 
-  const fetchCourses = async () => {
-    try {
-      const response = await fetch('your_api_endpoint_here');
-      const data = await response.json();
-      setCourses(data);
-    } catch (error) {
-      console.error('Error fetching courses:', error);
-    }
-  };
-
-  const handleRegister = async () => {
+  const handleRegister = async (row) => {
     // Your code to post registration data to the server
     // This could involve sending selectedCourse, teacher, and time
     // to the server to handle the registration process
+    for (let i in registeredCourses) {
+      if (row.original.subjectId === registeredCourses[i]['subjectId']) {
+        alert('Môn học đã được đăng ký!!!');
+        return;
+      }
+    }
+    console.log('Đăng ký cho:', row.original);
     alert('Đăng ký môn thành công');
     setTeacher('');
     setTime('');
     setShowModal(false);
   };
-
   const handleCloseModal = () => {
     setTeacher('');
     setTime('');
     setShowModal(false);
   };
-
   const handleShowModal = () => {
     //setSelectedCourse(course);
     setShowModal(true);
   };
 
+  const columns = useMemo(
+    () => [
+      {
+        accessorKey: 'subjectId',
+        header: 'Mã môn học',
+        muiEditTextFieldProps: {
+          type: 'text',
+          required: true,
+          error: !!validationErrors?.subjectId,
+          helperText: validationErrors?.subjectId,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              subjectId: undefined,
+            }),
+          //readOnly: true,
+        },
+      },
+      {
+        accessorKey: 'name',
+        header: 'Tên môn học',
+        muiEditTextFieldProps: {
+          type: 'text',
+          required: true,
+          error: !!validationErrors?.name,
+          helperText: validationErrors?.name,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              name: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'room',
+        header: 'Phòng học',
+        muiEditTextFieldProps: {
+          type: 'text',
+          required: true,
+          error: !!validationErrors?.room,
+          helperText: validationErrors?.room,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              room: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'amount',
+        header: 'Số lượng',
+        muiEditTextFieldProps: {
+          type: 'text',
+          required: true,
+          error: !!validationErrors?.amount,
+          helperText: validationErrors?.amount,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              amount: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'teacher',
+        header: 'Giảng viên',
+        muiEditTextFieldProps: {
+          type: 'text',
+          required: true,
+          error: !!validationErrors?.teacher,
+          helperText: validationErrors?.teacher,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              teacher: undefined,
+            }),
+        },
+      },
+      {
+        accessorKey: 'time',
+        header: 'Giờ học',
+        muiEditTextFieldProps: {
+          type: 'text',
+          required: true,
+          error: !!validationErrors?.time,
+          helperText: validationErrors?.time,
+          onFocus: () =>
+            setValidationErrors({
+              ...validationErrors,
+              time: undefined,
+            }),
+        },
+      },
+
+      {
+        accessorKey: 'register',
+        header: 'Đăng ký môn',
+        Cell: ({ row }) => (
+          <Button onClick={() => handleRegister(row)}>
+            Đăng ký
+          </Button>
+        ),
+      },
+    ],
+    [validationErrors]
+  );
+
+  const table = useMaterialReactTable({
+    columns,
+    data: courses,
+    getRowId: (row) => row.subjectId,
+    initialState: { columnVisibility: { subjectId: true, name: true, room: true, amount: true, teacher: true, time: true } },
+    muiTableContainerProps: {
+      sx: {
+        overflowX: 'auto',
+        width: '100%',
+      },
+    }
+  });
+
   return (
     <>
       <StudentHeader />
-      <Tab.Container id="list-group-tabs-example" defaultActiveKey="#1">
+      <Tab.Container id="list-group-tabs-example" defaultActiveKey="#register">
         <Row style={{ marginTop: '2%' }}>
-          <Col sm={3}>
+          <Col sm={2}>
             <ListGroup>
-              <ListGroup.Item action href="#1">
+              <ListGroup.Item action href="#register">
                 Đăng ký học phần
               </ListGroup.Item>
-              <ListGroup.Item action href="#2">
+              <ListGroup.Item action href="#education">
                 Chương trình đào tạo
               </ListGroup.Item>
             </ListGroup>
           </Col>
-          <Col sm={9}>
+          <Col sm={10}>
             <Tab.Content>
-              <Tab.Pane eventKey="#1">
+              <Tab.Pane eventKey="#register">
                 <h4>Chọn môn học đăng ký</h4>
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Tên môn học</th>
-                      <th>Phòng học</th>
-                      <th>Số lượng</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/*courses.map(course => (
-            <tr key={course.id}>
-              <td>{course.name}</td>
-              <td>{course.room}</td>
-              <td>{course.amount}</td>
-              <td>
-                <Button onClick={() => handleShowModal(course)}>Chọn</Button>
-              </td>
-            </tr>
-          ))*/}
-                    <tr>
-                      <td>LTNC</td>
-                      <td>413-H6</td>
-                      <td>40</td>
-                      <td>
-                        <Button onClick={handleShowModal}>Chọn</Button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>ABC</td>
-                      <td>101-H1</td>
-                      <td>50</td>
-                      <td>
-                        <Button onClick={handleShowModal}>Chọn</Button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>XYZ</td>
-                      <td>202-H2</td>
-                      <td>60</td>
-                      <td>
-                        <Button onClick={handleShowModal}>Chọn</Button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
+                <MaterialReactTable style={{ minWidth: '1000px' }} table={table} />
 
-                <h4>Phiếu đăng ký</h4>
+                <h4 style={{ marginTop: '2rem' }}>Phiếu đăng ký</h4>
                 <Table striped bordered hover>
                   <thead>
                     <tr>
@@ -128,28 +242,21 @@ const CourseRegistration = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>COxxxx</td>
-                      <td>LTNC</td>
-                      <td>413-H6</td>
-                      <td>40</td>
-                      <td>Mai Đức Trung</td>
-                      <td>13:00-15:00</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>COxxxx</td>
-                      <td>ABC</td>
-                      <td>101-H1</td>
-                      <td>50</td>
-                      <td>Tên Giảng Viên</td>
-                      <td>hh:mm-hh:mm</td>
-                    </tr>
+                    {registeredCourses.map(registeredCourse => (
+                      <tr key={registeredCourse.id}>
+                        <td>{registeredCourse.stt}</td>
+                        <td>{registeredCourse.subjectId}</td>
+                        <td>{registeredCourse.name}</td>
+                        <td>{registeredCourse.room}</td>
+                        <td>{registeredCourse.amount}</td>
+                        <td>{registeredCourse.teacher}</td>
+                        <td>{registeredCourse.time}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </Table>
               </Tab.Pane>
-              <Tab.Pane eventKey="#2">
+              <Tab.Pane eventKey="#education">
                 <h1>CHƯƠNG TRÌNH ĐÀO TẠO</h1>
               </Tab.Pane>
             </Tab.Content>
