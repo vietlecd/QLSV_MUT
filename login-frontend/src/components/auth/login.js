@@ -13,25 +13,25 @@ function Login(props) {
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-        // Gọi hàm auth.login() và chờ phản hồi
-        const response = await auth.login(email, password);
-        console.log("response data: ", response);
-        if (response.message === "Login successful") {
-          setErrorMsg(null);
-          setSuccessMsg("Login successful!");
-          navigate('/' + path[1] + '/dashboard');
-        } else if(response.message === "Default password in use. Password change required."){
-          setErrorMsg(response.message);
-          setSuccessMsg(null);
-          navigate('/' + path[1] + '/changepassword');
-        } else{
-          setErrorMsg(response.message);
-          setSuccessMsg(null);
-        }
+      // Gọi hàm auth.login() và chờ phản hồi
+      const response = await auth.login(email, password);
+      console.log("response data: ", response);
+      if (response.message === "Login successful") {
+        setErrorMsg(null);
+        setSuccessMsg("Login successful!");
+        navigate('/' + path[1] + '/dashboard');
+      } else if(response.message === "Default password in use. Password change required."){
+        setErrorMsg(response.message);
+        setSuccessMsg(null);
+        navigate('/' + path[1] + '/changepassword');
+      } else{
+        setErrorMsg(response.message);
+        setSuccessMsg(null);
+      }
     } catch (error) {
-        // Xử lý các lỗi xảy ra trong quá trình gọi auth.login()
-        setErrorMsg(error?.message || "Error");
-        console.error('Login error:', error.message);
+      // Xử lý các lỗi xảy ra trong quá trình gọi auth.login()
+      setErrorMsg(error?.message || "Error");
+      console.error('Login error:', error.message);
     }
 };
 

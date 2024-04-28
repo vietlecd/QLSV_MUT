@@ -46,7 +46,7 @@ function App() {
             style={{ width: '25%', height: '100vh', backgroundColor: 'rgb(62, 161, 168)' }}
           >
             <div>
-              <img className="img-thumbnail no-gutter" id="logo" alt="" src={logo} />
+              <a href='/'><img className="img-thumbnail no-gutter" id="logo" alt="" src={logo} /></a>
               <h1 style={{marginTop: '5vh'}}>Welcome</h1>
               {switchToChangePassword()}
             </div>

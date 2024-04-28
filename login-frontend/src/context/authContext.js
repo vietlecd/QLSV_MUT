@@ -8,10 +8,11 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     try {
       const data = await authService.login(email, password);
-      if (data && data.token) {
-        sessionStorage.setItem('jwtToken', data.token);
+      console.log(data);
+      if (data) {
+        const token = data.token;
         setUser(data);
-        return data;
+        return {...data, token};
       } else {
         console.error('No data or token received on login');
         return null; 

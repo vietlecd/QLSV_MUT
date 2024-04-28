@@ -5,7 +5,6 @@ import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import FirstHeader from './../components/header_footer/FirstHeader';
 import FirstFooter from './../components/header_footer/FirstFooter';
-//import './FirstPage.css';
 
 const slide1 = 'https://i.ibb.co/RbNBFv1/8ktXyJ-n.jpg';
 
