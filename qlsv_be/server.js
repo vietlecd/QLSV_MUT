@@ -27,6 +27,7 @@ mongoose.connect('mongodb://localhost:27017/MUT_LMS')
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
+app.use(cors());
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
@@ -35,9 +36,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/home');
   });
 });
-
   
-app.use(cors());
 app.use(bodyParser.json());
 
 // Admin route setup
