@@ -5,15 +5,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Table, Button, Modal, Form, Row, Col, Tab, ListGroup } from 'react-bootstrap';
 
-import StudentHeader from '../../components/header_footer/StudentHeader';
+import StudentHeader from '../../components/header_footer/CourseHeader';
 import Footer from '../../components/header_footer/Footer';
 
-function Course1() {
+function MyCourse() {
   return (
     <>
       <StudentHeader />
@@ -44,4 +42,4 @@ function Course1() {
   );
 }
 
-export default Course1;
+export default MyCourse;

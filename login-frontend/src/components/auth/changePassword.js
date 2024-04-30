@@ -23,8 +23,10 @@ function ChangePassword(props) {
         console.log("response data: ", response);
         if (response.message === "Password changed successfully.") {
           setErrorMsg(null);
-          setSuccessMsg("Password changed successfully.");
-          navigate('/' + path[1] + '/dashboard');
+          setSuccessMsg(response.message);
+          sessionStorage.clear();
+          navigate('/' + path[1] + '/login');
+          window.location.reload();
         } else {
           setErrorMsg(response.message);
           setSuccessMsg(null);

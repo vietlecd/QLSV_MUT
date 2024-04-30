@@ -22,13 +22,13 @@ function FirstHeader() {
     <>
       <Navbar style={{ display: 'flex' }}>
         <img style={{ width: '20vh', marginLeft: '3vh' }} src={'https://i.ibb.co/CMwkBmw/lSgDz8N.png'} alt="logo" />
-        <Link to={'/teacher/login'} style={{ marginLeft: '5vh', color: 'black', textDecorationLine: 'none' }}>
+        <Link to={'/teacher/dashboard'} style={{ marginLeft: '5vh', color: 'black', textDecorationLine: 'none' }}>
           <h4 style={{marginLeft: '5vh', marginRight: '5vh', width:'15vh', textAlign: 'center' }}>TEACHER</h4>
         </Link>
-        <Link to={'/student/login'} style={{ color: 'black', textDecorationLine: 'none' }}>
+        <Link to={'/student/dashboard'} style={{ color: 'black', textDecorationLine: 'none' }}>
           <h4 style={{marginLeft: '5vh', marginRight: '5vh', width:'15vh', textAlign: 'center' }}>STUDENT</h4>
         </Link>
-        <Link to={'/admin/login'} style={{ color: 'black', textDecorationLine: 'none' }}>
+        <Link to={'/admin/dashboard'} style={{ color: 'black', textDecorationLine: 'none' }}>
           <h4 style={{marginLeft: '5vh', marginRight: '5vh', width:'15vh', textAlign: 'center' }}>ADMIN</h4>
         </Link>
         <div style={{ marginLeft: '35%', width: '10%' }}>

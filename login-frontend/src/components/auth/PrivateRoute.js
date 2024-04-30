@@ -3,11 +3,21 @@ import { Outlet, Navigate, useNavigate } from 'react-router-dom'
 
 const PrivateRoutes = () => {
   const navigate = useNavigate();
-  const redirectUrl = '/';
   const token = sessionStorage.getItem('jwtToken');
-  useEffect(() => {
+  const info = sessionStorage.getItem('userdata');
+
+  const path = window.location.pathname.split('/');
+  const loginUrl = '/' + path[1] + '/login';
+  useEffect(() => {    
     if(!token){
-      navigate(redirectUrl, {replace: true });
+      navigate(loginUrl, {replace: true });
+    }
+    else{
+      const userdata = JSON.parse(info);
+      console.log('/' + userdata.role + '/dashboard');
+      if(path[1] != userdata.role){
+        navigate('/' + userdata.role + '/dashboard');
+      }
     }
   }, []);
   return(

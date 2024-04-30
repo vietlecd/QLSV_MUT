@@ -23,7 +23,9 @@ function Login(props) {
       } else if(response.message === "Default password in use. Password change required."){
         setErrorMsg(response.message);
         setSuccessMsg(null);
+        sessionStorage.clear();
         navigate('/' + path[1] + '/changepassword');
+        window.location.reload();
       } else{
         setErrorMsg(response.message);
         setSuccessMsg(null);

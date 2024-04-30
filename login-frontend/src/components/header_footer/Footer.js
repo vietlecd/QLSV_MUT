@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function Footer() {
   return (
     <>
-      <footer className="text-center foot">
+      <footer className="text-center foot" style={{ color: '#13f7ce'}} >
         <p style={{ paddingTop: '2vh', margin: 0 }}>
           Copyright &copy; 2024 | All rights reserved
         </p>

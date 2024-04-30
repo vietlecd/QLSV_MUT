@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { LogOut } from '../auth/logout';
-function TeacherHeader() {
+import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Navbar, Nav, Form, Button, Row, Col } from "react-bootstrap";
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import {LogOut} from './../../components/auth/logout';
+function AdminHeader() {
   const [info, setInfo] = useState({});
   useEffect(() => {
     const userdata = sessionStorage.getItem('userdata');
@@ -17,11 +21,11 @@ function TeacherHeader() {
         </a>
         <ul className="navbar-nav ms-auto">
           <li style={{padding: '2vh'}}>
-            <p>Nguyen Van A - GV{info.msgv}</p>
+            <p>{info.name} - ADMIN</p>
           </li>
           <li style={{padding: '2vh', cursor: 'pointer'}} onClick={LogOut}>
             <i className="fa fa-solid fa-bell fa-lg fa-3x"></i>
-            Logout
+            LogOut
           </li>
         </ul>
       </nav>
@@ -29,4 +33,4 @@ function TeacherHeader() {
   );
 }
 
-export default TeacherHeader;
+export default AdminHeader;
