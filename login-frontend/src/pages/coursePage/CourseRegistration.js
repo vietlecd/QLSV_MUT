@@ -9,7 +9,7 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-import StudentHeader from '../../components/header_footer/StudentHeader';
+import StudentHeader from '../../components/header_footer/CourseHeader';
 import Footer from '../../components/header_footer/Footer';
 
 const CourseRegistration = () => {

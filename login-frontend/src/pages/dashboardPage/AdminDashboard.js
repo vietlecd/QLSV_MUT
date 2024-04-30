@@ -1,102 +1,64 @@
-import React, { useState } from 'react';
-import StudentInfo from '../../components/dashboard/studentInfo';
-import Training from '../../components/dashboard/studentTraining';
-import Footer from '../../components/header_footer/Footer';
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import React, {createContext, useContext, useState} from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import {LogOut} from './../../components/auth/logout';
-import './Dashboard.css';
 
-function DataTable() {
-  const [currentView, setCurrentView] = useState('StudentInfo');
+import ListStudent from '../../components/dashboard/listStudent';
+import ListTeacher from '../../components/dashboard/listTeacher';
+import EditStudent from '../../components/dashboard/editStudent';
+import EditTeacher from '../../components/dashboard/editTeacher';
+import AdminHeader from '../../components/header_footer/AdminHeader';
+import Footer from '../../components/header_footer/Footer';
 
+export const ViewContext = createContext();
+function AdminStudent() {
+  const [isOpen, setIsOpen] = useState(true);
+  const [currentView, setCurrentView] = useState('Student');
   const handleNavigation = (viewName) => {
     setCurrentView(viewName);
   };
-  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          <img className="logo" src="https://i.ibb.co/CMwkBmw/lSgDz8N.png" alt="logo" />
-        </a>
-        <ul className="navbar-nav ms-auto">
-          <li style={{padding: '2vh'}}>
-            <a className="nav-link" href="#">Nguyen Van A - SVxxxxx</a>
-          </li>
-          <li style={{padding: '2vh', cursor: 'pointer'}} onClick={LogOut}>
-            <i className="fa fa-solid fa-bell fa-lg fa-3x"></i>
-            Logout
-          </li>
-        </ul>
-      </nav>
-
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-2 leftBody">
-            <ul className="nav flex-column">
-              <li className="nav-item" style={{padding: '0', marginTop: '2rem', cursor: 'pointer' }}>
-                <a href='/' className='left_navbar'>
-                    <i className="fas fa-solid fa-home fa-md fa-2x"></i> Home
-                </a>
-              </li>
-              <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'  }}>
-                <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> Personal
-              </li>
-              <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}>
-                <i className="fa fa-solid fa-book fa-md fa-2x"></i>  Study
-                <i className="fa-solid fa-angles-down"></i>
-                {isOpen && (
-                  <ul>                    
-                    <li className="nav-item" style={{ paddingTop: '2rem' }}>
-                      <Link to={'/student/course'} style={{ color: 'white', padding: '0' }}>Course</Link>
-                    </li>
-                    <li className="nav-item" style={{ paddingTop: '2rem' }}>
-                      <Link to={'/student/courseRegistration'} style={{ color: 'white', padding: '0' }}>Course registration</Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
-              <li className="nav-item" style={{ marginTop: '2rem', cursor: 'pointer'  }}>
-                <i className="fa fa-solid fa-question fa-md fa-2x"></i> Assistant
-              </li>
-            </ul>
-          </div>
-
-          <div className="col-md-10 rightBody">
-            <div className="dataTable mx-auto">
-              <nav>
-                <div className="navigation">
-                  <a
-                    onClick={() => handleNavigation('StudentInfo')}
-                    style={{ fontWeight: 'bold'}}
-                    className={currentView === 'StudentInfo' ? 'active top_navbar' : ' top_navbar'}
-                  >
-                    Student Information
-                  </a>
-                  <a
-                    href="#"
-                    onClick={() => handleNavigation('Training')}
-                    style={{ fontWeight: 'bold' }}
-                    className={currentView === 'Training' ? 'active top_navbar' : ' top_navbar'}
-                  >
-                    Training Information
-                  </a>
-                </div>
-              </nav>
-              <div style={{ padding: '10px' }}>
-                <i style={{ fontWeight: 'bold' }}>Last updated time: dd/mm/yyyy realtime</i>
-              </div>
-              {currentView === 'StudentInfo' && <StudentInfo />}
-              {currentView === 'Training' && <Training />}
-            </div>
-          </div>
+    <>
+      <AdminHeader />
+      <div className="row">
+        <div className="col-md-2 leftBody">
+          <ul className="nav flex-column" style={{ height: '83vh', backgroundColor: 'rgb(58, 35, 35)', color: 'white' }}>
+            <li className="nav-item" style={{ paddingTop: '2rem', cursor: 'pointer' }} onClick={() => setIsOpen(!isOpen)}>
+              <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> User Infomation
+              <i class="fa-solid fa-angles-down"></i>
+            </li>
+            {isOpen && (
+              <ul>
+                <li className="nav-item" style={{ paddingTop: '2rem' }}>
+                  <p onClick={() => handleNavigation('Student')} className={currentView === 'Student' && 'greentext'} style={{cursor: 'pointer'}}>
+                    Student
+                  </p>
+                </li>
+                <li className="nav-item" style={{ paddingTop: '2rem' }}>
+                  <p onClick={() => handleNavigation('Teacher')} className={currentView === 'Teacher' && 'greentext'} style={{cursor: 'pointer'}}>
+                    Teacher
+                  </p>
+                </li>
+              </ul>
+            )}
+            <li className="nav-item" style={{ paddingTop: '2rem' }}>
+              <Link to='/bangdieukhien' style={{ color: 'white', padding: '0', textDecoration: 'none' }}>
+                <i className="fa fa-solid fa-question fa-md fa-2x"></i> Dashboard
+              </Link> 
+            </li>
+          </ul>
+        </div>
+        <div className='col-md-10 rightBody'>
+          <ViewContext.Provider value={{currentView, handleNavigation}} >
+            {currentView === 'Student' && <ListStudent />}
+            {currentView === 'Teacher' && <ListTeacher />}
+            {currentView === 'EditStudent' && <EditStudent />}
+            {currentView === 'EditTeacher' && <EditTeacher />}
+          </ViewContext.Provider>
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
-export default DataTable;
+export default AdminStudent;
 

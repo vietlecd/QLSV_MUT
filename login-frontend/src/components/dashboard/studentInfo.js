@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-function StudentInfo(props) {
+function StudentInfo() {
   const [info, setInfo] = useState({});
   useEffect(() => {
     const userdata = sessionStorage.getItem('userdata');

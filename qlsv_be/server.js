@@ -36,6 +36,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/home');
   });
 });
+
   
 app.use(bodyParser.json());
 

@@ -10,7 +10,7 @@ import MyCourse from './pages/coursePage/MyCourse';
 import CourseRegistration from './pages/coursePage/CourseRegistration';
 import StudentDashBoard from './pages/dashboardPage/StudentDashboard';
 import TeacherDashBoard from './pages/dashboardPage/TeacherDashBoard';
-import AdminDashBoard from './pages/dashboardPage/TeacherDashBoard';
+import AdminDashBoard from './pages/dashboardPage/AdminDashboard';
 import AdminStudent from './pages/adminPage/adminStudent/AdminStudent';
 import AdminStudentEdit from './pages/adminPage/adminStudent/AdminStudentEdit';
 import AdminTeacher from './pages/adminPage/adminTeacher/AdminTeacher';

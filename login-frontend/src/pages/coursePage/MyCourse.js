@@ -8,7 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Card from 'react-bootstrap/Card';
 import { Table, Button, Modal, Form, Row, Col, Tab, ListGroup } from 'react-bootstrap';
 
-import StudentHeader from '../../components/header_footer/StudentHeader';
+import StudentHeader from '../../components/header_footer/CourseHeader';
 import Footer from '../../components/header_footer/Footer';
 
 function MyCourse() {

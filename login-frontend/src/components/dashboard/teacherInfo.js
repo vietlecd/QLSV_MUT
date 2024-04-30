@@ -12,13 +12,6 @@ function StudentInfo(props) {
   }, [])
   return (
     <>
-      <nav>
-        <div className="navigation">
-          <a className={'active top_navbar'}>
-            Teacher Information
-          </a>
-        </div>
-      </nav>
       <div style={{ padding: '2vh' }}>
         <i style={{ fontWeight: 'bold' }}>Last updated time: dd/mm/yyyy realtime</i>
       </div>
@@ -37,8 +30,8 @@ function StudentInfo(props) {
         <div className="data-box col-3x">
           <p style={{ fontWeight: 'bold' }}>#Full Name</p>
           <p>{info.name}</p>
-          <p style={{ fontWeight: 'bold' }}>#Student ID</p>
-          <p>{info.mssv}</p>
+          <p style={{ fontWeight: 'bold' }}>#Teacher ID</p>
+          <p>{info.msgv}</p>
           <p style={{ fontWeight: 'bold' }}>#Sex</p>
           <p>{info.private_info||'None'}</p>
         </div>
