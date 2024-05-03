@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+/*import React, { useMemo, useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Table, Button, Modal, Form, Row, Col, Tab, ListGroup } from 'react-bootstrap';
@@ -20,12 +20,12 @@ function AdminTeacher() {
     {
       'msgv': '1234567',
       'name': 'Nguyen Van A',
-      'gmail': 'abcxyz@mut.edu.vn',
+      'email': 'abcxyz@mut.edu.vn',
     },
     {
       'msgv': '2345678',
       'name': 'Nguyen Van B',
-      'gmail': 'abc123@mut.edu.vn',
+      'email': 'abc123@mut.edu.vn',
     }
   ]);
 
@@ -71,17 +71,17 @@ function AdminTeacher() {
         },
       },
       {
-        accessorKey: 'gmail',
-        header: 'Gmail',
+        accessorKey: 'email',
+        header: 'Email',
         muiEditTextFieldProps: {
           type: 'text',
           required: true,
-          error: !!validationErrors?.gmail,
-          helperText: validationErrors?.gmail,
+          error: !!validationErrors?.email,
+          helperText: validationErrors?.email,
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
-              gmail: undefined,
+              email: undefined,
             }),
         },
       },
@@ -107,7 +107,7 @@ function AdminTeacher() {
     columns,
     data: teachers,
     getRowId: (row) => row.msgv,
-    initialState: { columnVisibility: { msgv: true, name: true, gmail: true } },
+    initialState: { columnVisibility: { msgv: true, name: true, email: true } },
     muiTableContainerProps: {
       sx: {
         overflowX: 'auto',
@@ -122,25 +122,20 @@ function AdminTeacher() {
       <Row>
         <Col sm={2}>
           <ul className="nav flex-column" style={{ height: '83vh', backgroundColor: 'rgb(58, 35, 35)', color: 'white' }}>
-            <li className="nav-item" style={{ paddingTop: '2rem' }}>
-              <Link to='/' style={{ color: 'white', padding: '0', textDecoration: 'none' }}>
-                <i className="fas fa-solid fa-home fa-md fa-2x"></i> Trang chủ
-              </Link>
-            </li>
             <li className="nav-item" style={{ paddingTop: '2rem', cursor: 'pointer' }} onClick={() => setIsOpen(!isOpen)}>
-              <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> Thông tin cá nhân
+              <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> User Information
               <i class="fa-solid fa-angles-down"></i>
             </li>
             {isOpen && (
               <ul>
                 <li className="nav-item" style={{ paddingTop: '2rem' }}>
                   <Link to='/admin/dashboard/student/add' style={{ color: 'white', padding: '0', textDecoration: 'none' }}>
-                    Sinh viên
+                    Student
                   </Link>
                 </li>
                 <li className="nav-item" style={{ paddingTop: '2rem' }}>
                   <div style={{ color: '#90f216', padding: '0' }}>
-                    Giảng viên
+                    Teacher
                   </div>
                 </li>
               </ul>
@@ -171,4 +166,4 @@ function AdminTeacher() {
   );
 }
 
-export default AdminTeacher;
+export default AdminTeacher;*/

@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+/*import React, { useMemo, useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Table, Button, Modal, Form, Row, Col, Tab, ListGroup } from 'react-bootstrap';
@@ -20,12 +20,12 @@ function AdminStudent() {
     {
       'mssv': '1234567',
       'name': 'Nguyen Van A',
-      'gmail': 'abcxyz@mut.edu.vn',
+      'email': 'abcxyz@mut.edu.vn',
     },
     {
-      'mssv': '2345678',
-      'name': 'Nguyen Van B',
-      'gmail': 'abc123@mut.edu.vn',
+      'mssv': '',
+      'name': '',
+      'email': '',
     }
   ]);
 
@@ -71,17 +71,17 @@ function AdminStudent() {
         },
       },
       {
-        accessorKey: 'gmail',
-        header: 'Gmail',
+        accessorKey: 'email',
+        header: 'Email',
         muiEditTextFieldProps: {
           type: 'text',
           required: true,
-          error: !!validationErrors?.gmail,
-          helperText: validationErrors?.gmail,
+          error: !!validationErrors?.email,
+          helperText: validationErrors?.email,
           onFocus: () =>
             setValidationErrors({
               ...validationErrors,
-              gmail: undefined,
+              email: undefined,
             }),
         },
       },
@@ -107,7 +107,7 @@ function AdminStudent() {
     columns,
     data: students,
     getRowId: (row) => row.mssv,
-    initialState: { columnVisibility: { mssv: true, name: true, gmail: true } },
+    initialState: { columnVisibility: { mssv: true, name: true, email: true } },
     muiTableContainerProps: {
       sx: {
         overflowX: 'auto',
@@ -123,7 +123,7 @@ function AdminStudent() {
         <Col sm={2}>
           <ul className="nav flex-column" style={{ height: '83vh', backgroundColor: 'rgb(58, 35, 35)', color: 'white' }}>
             <li className="nav-item" style={{ paddingTop: '2rem', cursor: 'pointer' }} onClick={() => setIsOpen(!isOpen)}>
-              <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> User Infomation
+              <i className="fas fa-regular fa-id-badge fa-md fa-2x"></i> User Information
               <i class="fa-solid fa-angles-down"></i>
             </li>
             {isOpen && (
@@ -166,4 +166,4 @@ function AdminStudent() {
   );
 }
 
-export default AdminStudent;
+export default AdminStudent;*/

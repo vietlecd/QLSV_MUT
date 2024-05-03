@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+/*import React, { useEffect, useState } from 'react';
 import { Table, Button, Modal, Form, Row, Col, Tab, ListGroup } from 'react-bootstrap';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-function EditStudent(props) {
+function EditTeacher(props) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -20,4 +20,4 @@ function EditStudent(props) {
   );
 }
 
-export default EditStudent;
+export default EditTeacher;*/
