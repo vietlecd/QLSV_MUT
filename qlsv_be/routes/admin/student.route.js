@@ -18,8 +18,8 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage: storage });
 
 // Route to update a student's information and handle image upload
-router.post('/upload/:mssv', upload.fields([{name: 'image', maxCount: 1}]), (req, res) => {
-  const link_img = req.files['img'][0]
+router.post('/upload/:mssv', upload.fields([{name: 'img', maxCount: 1}]), (req, res) => {
+  const link_img = req.files['img'][0];
   res.send(link_img);
 });
 

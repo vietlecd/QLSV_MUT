@@ -4,6 +4,7 @@ const router = express.Router();
 const {CloudinaryStorage} = require('multer-storage-cloudinary')
 const cloudinary = require('../../configs/cloudinary')
 const multer = require('multer');
+
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'images',
@@ -13,7 +14,7 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage: storage });
 
 // Route to update a student's information and handle image upload
-router.post('/thongtinsinhvien/updatePicture', upload.fields([{name: 'image', maxCount: 1}]), (req, res) => {
+router.post('/thongtinsinhvien/updatePicture', upload.fields([{name: 'img', maxCount: 1}]), (req, res) => {
   const link_img = req.files['img'][0]
   res.send(link_img);
 });
