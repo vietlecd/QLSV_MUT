@@ -3,19 +3,23 @@ const router = express.Router();
 const thongtinGiangVien = require('../../controllers/users/teacher/thongtingv.controller');
 const SinhVien = require('../../controllers/users/teacher/SinhVien.controller');
 
+const {CloudinaryStorage} = require('multer-storage-cloudinary')
+const cloudinary = require('../../configs/cloudinary')
 const multer = require('multer');
-const path = require('path'); //Upload image
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, 'uploads/')  // Store files in the 'uploads' folder
-    },
-    filename: function(req, file, cb) {
-      cb(null, file.fieldname + '-gv-' + Date.now() + path.extname(file.originalname))  // Create a unique file name
-    }
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'images',
+  allowedFormats: ['jpg', 'png', 'jpeg'],
 });
 
-// Create the upload middleware
 const upload = multer({ storage: storage });
+
+// Route to update a student's information and handle image upload
+router.post('/thongtinsinhvien/updatePicture', upload.fields([{name: 'image', maxCount: 1}]), (req, res) => {
+  const link_img = req.files['img'][0]
+  res.send(link_img);
+});
+
 
 const bangdieukhienRoute = require('./bangdieukhien.route')
 
