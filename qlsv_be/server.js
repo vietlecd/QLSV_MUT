@@ -23,7 +23,7 @@ const userRoute = require('./routes/users/index.route');
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/MUT_LMS')
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
